@@ -229,7 +229,7 @@ bci-security/
 │   ├── guardrails.json            8 neuroethics guardrails
 │   └── samples/                   3 demo device configs
 ├── LICENSE-CODE                   Apache 2.0
-└── LICENSE-DATA                   CC BY-SA 4.0
+└── LICENSE-DATA                   CC BY 4.0
 ```
 
 ## Built By
