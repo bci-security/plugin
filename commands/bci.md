@@ -48,7 +48,7 @@ Read the TARA techniques data from `${CLAUDE_PLUGIN_ROOT}/data/tara-techniques.j
 **Layer 1 (always show):**
 - Technique name and one-sentence summary
 - NISS score with severity
-- Status (CONFIRMED/DEMONSTRATED/THEORETICAL)
+- Status (CONFIRMED/EMERGING/DEMONSTRATED/THEORETICAL/PLAUSIBLE/SPECULATIVE)
 
 **Layer 2 (show by default):**
 - What it does in plain English (2-3 sentences, no jargon)
@@ -65,12 +65,14 @@ Always include the neuromodesty qualifier: "for threat modeling purposes" when d
 
 Key terms to define:
 - **BCI**: Brain-Computer Interface — a device that reads or writes neural signals
-- **TARA**: Threat catalog of 135 attack techniques targeting BCI systems
-- **NISS**: Neural Impact Scoring System — severity scoring for BCI threats (like CVSS but for neural systems)
+- **TARA**: Threat catalog of 135 techniques targeting BCI systems
+- **NISS**: Severity scoring for BCI threats — supplements CVSS with neural-specific dimensions
 - **QIF**: The framework that organizes BCI security analysis
 - **LSL**: Lab Streaming Layer — a protocol for streaming neural data (no built-in encryption)
 - **EDF/BDF**: European Data Format — common file format for storing neural recordings
 - **Neuromodesty**: The principle that neural correlates do not prove causation (Morse 2006)
 - **Dual-use**: When the same mechanism can be used for therapy or attack — the difference is consent, dosage, and oversight
+- **Hourglass bands**: The QIF model of BCI architecture — layers from hardware (I0) through biological neural systems (N1-N7) to silicon processing (S1-S3). Threats target specific bands.
+- **Evidence tiers**: CONFIRMED (independently reproduced), EMERGING (active research), DEMONSTRATED (lab-proven), THEORETICAL (extrapolated from known patterns), PLAUSIBLE (physics-based projection), SPECULATIVE (hypothetical)
 
 Note: QIF, TARA, and NISS are proposed research tools, not adopted standards. They have not been independently peer-reviewed.

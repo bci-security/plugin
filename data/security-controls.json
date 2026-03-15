@@ -3,7 +3,7 @@
     "title": "QIF Security Controls",
     "version": "1.0.0",
     "description": "Security controls and detection methods mapped to QIF hourglass bands. Grows over time as controls are developed.",
-    "license": "CC-BY-4.0"
+    "license": "CC-BY-SA-4.0"
   },
   "controls_by_band": {
     "N7": {

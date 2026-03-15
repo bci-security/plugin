@@ -1,6 +1,10 @@
 # BCI Security
 
-Threat modeling and security analysis for brain-computer interfaces. The first neurotechnology security tool on any AI coding platform.
+Threat modeling and security analysis for brain-computer interfaces. A neurotechnology security tool for AI coding platforms.
+
+## Requirements
+
+No external dependencies. Install and run `/bci-scan --demo`.
 
 **Status:** Research tool. Proposed framework, not an adopted standard. Not independently peer-reviewed.
 
@@ -39,7 +43,7 @@ The difference between therapy and attack is consent, dosage, and oversight.
 
 ## What's Inside
 
-- **TARA**: 135 threat techniques across 11 biological domains, each with evidence tiers (CONFIRMED / DEMONSTRATED / THEORETICAL)
+- **TARA**: 135 threat techniques across 11 biological domains, each with evidence tiers (CONFIRMED / EMERGING / DEMONSTRATED / THEORETICAL / PLAUSIBLE / SPECULATIVE)
 - **NISS**: 6-dimensional severity scoring — Biological Impact, Coupling Risk, Coherence Disruption, Consent Violation, Reversibility, Neuroplasticity
 - **3 Code Scanning Rules**: Transport encryption, data storage PII, API credential handling
 - **8 Neuroethics Guardrails**: From Morse, Poldrack, Racine, Ienca, Kellmeyer, Wexler, Tennison, Vul/Eklund
@@ -70,7 +74,35 @@ Every clinical impact statement in this plugin includes "for threat modeling pur
 
 ## Contributing
 
-See `CONTRIBUTING.md` for the TARA Technique Proposal process.
+Contributions welcome. To propose a new TARA technique, open a GitHub issue using the Technique Proposal template.
+
+## Structure
+
+```
+bci-security/
+├── .claude-plugin/plugin.json     Plugin metadata
+├── commands/
+│   ├── bci.md                     Entry point (/bci)
+│   └── bci-scan.md                Code scanner (/bci-scan --demo)
+├── skills/
+│   ├── tara-lookup/               Query 135 threat techniques
+│   ├── niss-score/                Neural impact severity scoring
+│   ├── neuromodesty-check/        8 guardrail compliance checks
+│   ├── bci-threat-model/          Guided threat model generation
+│   ├── bci-scan/                  Passive code scanning
+│   └── bci-learn/                 Interactive tutorials
+├── agents/
+│   └── threat-modeler.md          Multi-step threat modeling agent
+├── hooks/hooks.json               Neural data file detection
+├── data/
+│   ├── tara-techniques.json       135 techniques (~120 KB)
+│   ├── niss-device-scores.json    22 device scores
+│   ├── security-controls.json     Controls by hourglass band
+│   ├── guardrails.json            8 neuroethics guardrails
+│   └── samples/                   3 demo device configs
+├── LICENSE-CODE                   Apache 2.0
+└── LICENSE-DATA                   CC BY-SA 4.0
+```
 
 ## Built By
 

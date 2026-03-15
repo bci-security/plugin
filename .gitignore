@@ -1,0 +1,10 @@
+_memory/
+_swarm/
+.env*
+*.pem
+*.key
+*.p12
+credentials.*
+node_modules/
+.DS_Store
+*.log

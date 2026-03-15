@@ -98,6 +98,26 @@ To scan your own project: /bci-scan .
 To learn more about BCI security: /bci learn tara
 ```
 
+## Clean Scan Output (no findings)
+
+When no BCI-related patterns are found:
+
+```
+BCI Security Scan Results
+========================
+
+Scanned: [file/directory]
+
+No BCI-related code patterns detected in this project.
+
+This scanner looks for: BCI library imports (pylsl, brainflow, mne,
+pyedflib, OpenBCI), neural data file operations (.edf, .bdf, .xdf),
+and BCI cloud API usage.
+
+To learn what BCI security covers: /bci learn quickstart
+To scan a demo sample instead: /bci-scan --demo
+```
+
 ## Important Constraints
 
 - Lead with the FIX, not the threat. "Missing encryption" not "vulnerable to attack T-0012."

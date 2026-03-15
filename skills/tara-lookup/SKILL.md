@@ -25,7 +25,7 @@ When the user queries about BCI threats or asks about a specific technique:
 ### Layer 1: Summary (always show)
 ```
 [ID]  [Name]                                    NISS [score]/10
-      Status: [CONFIRMED|DEMONSTRATED|THEORETICAL]
+      Status: [CONFIRMED|EMERGING|DEMONSTRATED|THEORETICAL|PLAUSIBLE|SPECULATIVE]
       Severity: [critical|high|medium|low]
       Bands: [affected QIF bands]
 ```
@@ -37,11 +37,10 @@ When the user queries about BCI threats or asks about a specific technique:
 - **Evidence:** Source papers or demonstrations
 
 ### Layer 3: Deep Dive (offer, don't force)
-- Full engineering parameters (frequency, amplitude, coupling)
-- Defensive controls from qif-security-controls.json
+- Defensive controls from `${CLAUDE_PLUGIN_ROOT}/data/security-controls.json`
 - Related techniques (cross_references)
-- Neurorights implications
-- Regulatory classification (FDORA)
+- Source citations and evidence basis
+- Mitigation recommendations
 
 ## Search Capabilities
 

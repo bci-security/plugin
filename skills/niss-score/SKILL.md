@@ -63,9 +63,26 @@ When users ask about the comparison:
 
 **Key message:** NISS supplements CVSS, it does not replace it. The TARA catalog provides both CVSS 4.0 and NISS vectors for each technique. Use CVSS for standard security assessment, NISS for the neural-specific dimensions CVSS cannot capture.
 
+## Device-Level Scoring (NSv2.1)
+
+The device scores file uses a different schema (`NSv2.1`) with neurorights-aligned dimensions:
+
+| Metric | What It Measures |
+|--------|-----------------|
+| CL | Cognitive Liberty impact |
+| MI | Mental Integrity impact |
+| MP | Mental Privacy impact |
+| PC | Psychological Continuity impact |
+| EA | Ethical Assessment (system-level) |
+
+**Important:** These neurorights dimensions (Cognitive Liberty, Mental Integrity, etc.) lack agreed operational definitions in the academic literature (see G5: Conceptual Underspecification, Kellmeyer 2022). Device-level scores use these terms as threat modeling categories, not as settled concepts.
+
+The per-technique NISS (v1.1) measures physical signal disruption. The per-device NSv2.1 aggregates technique scores into neurorights impact categories. Both are proposed and unvalidated.
+
 ## Mandatory Constraints
 
 - NISS is a proposed, unvalidated scoring system. Always state this when presenting scores.
 - Do NOT present NISS scores as clinical predictions. They measure signal-level disruption patterns, not cognitive outcomes.
 - The scoring formula has not been independently validated. Scores represent the framework author's assessment based on published literature and engineering analysis.
 - When comparing to CVSS, be clear about the adoption status difference: CVSS is an industry standard maintained by FIRST. NISS is a research proposal from a single researcher.
+- The technique-level severity (editorially assigned: critical/high/medium/low) may differ from the NISS-computed severity. When both are shown, clarify: "editorial severity: high; NISS-computed severity: medium (6.1/10)."
