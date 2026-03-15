@@ -1,0 +1,16 @@
+{
+  "description": "BCI security hooks — passive guardrail enforcement for neural data handling",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import sys, json; t=json.load(sys.stdin); f=t.get('tool_input',{}).get('file_path',''); exts=['.edf','.bdf','.xdf','.gdf','.fif','.nwb']; print(json.dumps({'result':'warn','message':'Neural data file detected ('+f.split('/')[-1]+'). Verify: (1) anonymized subject ID, (2) restricted file permissions, (3) consent metadata exists. Consider adding a .consent.json sidecar file.'})) if any(f.lower().endswith(e) for e in exts) else print(json.dumps({}))\""
+          }
+        ],
+        "matcher": "Write|Edit"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "device_name": "g.tec g.USBamp Research System",
+  "device_class": "research-eeg",
+  "channels": 64,
+  "sample_rate": 1200,
+  "signal_type": "EEG",
+  "connectivity": ["usb", "ethernet"],
+  "transport_protocol": "LSL",
+  "transport_encryption": false,
+  "firmware": "proprietary",
+  "secure_boot": false,
+  "data_storage": {
+    "formats": ["gdf", "edf", "mat"],
+    "encryption_at_rest": false,
+    "anonymization": "manual"
+  },
+  "cloud_api": false,
+  "deployment": "clinical-research"
+}

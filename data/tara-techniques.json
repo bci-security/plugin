@@ -1,0 +1,3295 @@
+{
+  "version": "1.0.0",
+  "total": 135,
+  "techniques": [
+    {
+      "id": "QIF-T0001",
+      "name": "Signal injection",
+      "tactic": "QIF-N.IJ",
+      "bands": "I0\u2013N1",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 6.1,
+        "severity": "medium"
+      },
+      "mechanism": "Electrical current delivery at electrode-tissue interface modulating local field potentials",
+      "sources": [
+        "Kohno et al. 2009",
+        "Bonaci et al. 2015"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "tDCS/tACS neuromodulation",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0002",
+      "name": "Neural ransomware",
+      "tactic": "QIF-P.DS",
+      "bands": "N3\u2013N7",
+      "status": "EMERGING",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 6.1,
+        "severity": "medium"
+      },
+      "mechanism": "Disruption or conditional locking of neural function via closed-loop stimulation parameter manipulation",
+      "sources": [
+        "Pycroft et al. 2016"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Deep brain stimulation (DBS) / Responsive neurostimulation (RNS)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0003",
+      "name": "Eavesdropping / signal interception",
+      "tactic": "QIF-D.HV",
+      "bands": "I0\u2013S3",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Passive capture of neural electromagnetic emissions from BCI data pathways",
+      "sources": [
+        "Kohno et al. 2009",
+        "Landau et al. 2020",
+        "Schroder et al. 2025"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "EEG/ECoG diagnostic monitoring",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0004",
+      "name": "Man-in-the-middle",
+      "tactic": "QIF-D.HV",
+      "bands": "I0\u2013S2",
+      "status": "DEMONSTRATED",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Active interception and modification of signals between BCI components in transit",
+      "sources": [
+        "Martinovic et al. 2012"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Signal routing in closed-loop neuroprosthetics",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0005",
+      "name": "Quantum tunneling exploit",
+      "tactic": "QIF-N.IJ",
+      "bands": "I0\u2013N1",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 6.1,
+        "severity": "medium"
+      },
+      "mechanism": "Exploitation of quantum tunneling effects at nanoscale electrode-tissue junctions",
+      "sources": [
+        "Summhammer et al. 2012",
+        "Salari et al. 2015"
+      ],
+      "dual_use": "possible",
+      "therapeutic_analog": "Quantum sensing for neural diagnostics (NV-center magnetometry)",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0006",
+      "name": "Davydov soliton attack",
+      "tactic": "QIF-N.IJ",
+      "bands": "I0\u2013N1",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 6.1,
+        "severity": "medium"
+      },
+      "mechanism": "Davydov soliton propagation in protein alpha-helices at electrode-tissue interface",
+      "sources": [
+        "Davydov 1973",
+        "Scott 1992"
+      ],
+      "dual_use": "possible",
+      "therapeutic_analog": "Biophoton/soliton-based cellular signaling research",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0007",
+      "name": "Protocol manipulation",
+      "tactic": "QIF-N.IJ",
+      "bands": "S1\u2013S2",
+      "status": "DEMONSTRATED",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:N/RV:P/NP:N",
+        "score": 4.1,
+        "severity": "medium"
+      },
+      "mechanism": "Manipulation of BCI communication protocol handshakes, headers, or sequencing",
+      "sources": [
+        "Schroder et al. 2025"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Adaptive stimulation protocol adjustment in closed-loop BCIs",
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0008",
+      "name": "Command hijacking",
+      "tactic": "QIF-N.IJ",
+      "bands": "S2\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 6.1,
+        "severity": "medium"
+      },
+      "mechanism": "Interception and substitution of BCI motor/sensory command signals",
+      "sources": [
+        "Kohno et al. 2009"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "BCI command interfaces for motor-impaired patients",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0009",
+      "name": "RF false brainwave injection",
+      "tactic": "QIF-N.MD",
+      "bands": "S1\u2013S2\u2192N4\u2013N7",
+      "status": "EMERGING",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Radiofrequency emission at neural oscillation frequencies to induce false brain activity patterns",
+      "sources": [
+        "Zhang et al. 2024"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Repetitive transcranial magnetic stimulation (rTMS)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0010",
+      "name": "ELF neural entrainment",
+      "tactic": "QIF-E.RD",
+      "bands": "S1\u2192N4\u2013N7",
+      "status": "CONFIRMED",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Extremely low frequency electromagnetic fields entraining endogenous neural oscillations via resonance",
+      "sources": [
+        "NTIA Frequency Allocation Chart",
+        "US Navy ELF program (declassified)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Audio-visual entrainment (AVE) / photic driving therapy",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0011",
+      "name": "Intermodulation (BCI signal weaponized)",
+      "tactic": "QIF-E.RD",
+      "bands": "S2\u2192N4\u2013N6",
+      "status": "THEORETICAL",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Nonlinear mixing of two or more carrier frequencies in neural tissue producing intermodulation products at neural frequencies",
+      "sources": [
+        "ITU Radio Regulations"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Temporal interference (TI) deep brain stimulation",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0012",
+      "name": "Pulsed microwave (Frey effect)",
+      "tactic": "QIF-E.RD",
+      "bands": "S3\u2192N2,N7",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:L/CD:L/CV:E/RV:P/NP:T",
+        "score": 5.4,
+        "severity": "medium"
+      },
+      "mechanism": "Pulsed microwave radiation inducing thermoelastic expansion in neural tissue (Frey effect / microwave auditory effect)",
+      "sources": [
+        "Frey 1962",
+        "Lin 1978"
+      ],
+      "dual_use": "possible",
+      "therapeutic_analog": "Transcranial microwave stimulation (experimental)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0013",
+      "name": "Temporal interference (deep targeting)",
+      "tactic": "QIF-E.RD",
+      "bands": "S2\u2192N4\u2013N6",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Two high-frequency currents intersecting in deep brain tissue, with stimulation occurring only at the interference zone",
+      "sources": [
+        "Grossman et al. 2017 (Cell)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Temporal interference (TI) non-invasive deep brain stimulation",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0014",
+      "name": "Envelope modulation (stealth carrier)",
+      "tactic": "QIF-E.RD",
+      "bands": "S1\u2013S2\u2192any N",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:I/RV:P/NP:S",
+        "score": 8.1,
+        "severity": "high"
+      },
+      "mechanism": "Amplitude-modulated carrier signal where neural tissue demodulates the envelope at biologically active frequencies",
+      "sources": [
+        "Datta et al. 2009"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "tACS with carrier-envelope paradigm",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0015",
+      "name": "Directed energy (thermal I0 damage)",
+      "tactic": "QIF-E.RD",
+      "bands": "S3\u2192I0",
+      "status": "CONFIRMED",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:C/CR:N/CD:N/CV:E/RV:I/NP:N",
+        "score": 5.4,
+        "severity": "medium"
+      },
+      "mechanism": "Focused electromagnetic energy causing thermal damage to electrode-tissue interface or neural tissue",
+      "sources": [
+        "US DoD Active Denial System (declassified)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Thermal ablation (stereotactic radiosurgery, LITT, RF ablation)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0016",
+      "name": "Professor X backdoor (training-time)",
+      "tactic": "QIF-M.SV",
+      "bands": "S2",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:T",
+        "score": 6.0,
+        "severity": "medium"
+      },
+      "mechanism": "Backdoor insertion during BCI model training phase via poisoned training data or modified training process",
+      "sources": [
+        "Zhang et al. 2024 (Professor X attack on EEG models)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0017",
+      "name": "Transfer learning backdoor",
+      "tactic": "QIF-M.SV",
+      "bands": "S2",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:T",
+        "score": 6.0,
+        "severity": "medium"
+      },
+      "mechanism": "Backdoor propagation via transfer learning from compromised pre-trained BCI model",
+      "sources": [
+        "Meng et al. 2024"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0018",
+      "name": "Adversarial filter attack",
+      "tactic": "QIF-M.SV",
+      "bands": "S1\u2013S2",
+      "status": "DEMONSTRATED",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:N",
+        "score": 5.4,
+        "severity": "medium"
+      },
+      "mechanism": "Crafted input perturbations that pass through BCI signal filters to reach decoder/classifier",
+      "sources": [
+        "Liu et al. 2024"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0019",
+      "name": "Universal adversarial perturbation (UAP)",
+      "tactic": "QIF-M.SV",
+      "bands": "S1\u2013S2",
+      "status": "DEMONSTRATED",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:N",
+        "score": 5.4,
+        "severity": "medium"
+      },
+      "mechanism": "Single perturbation vector effective against any input sample to a BCI classifier",
+      "sources": [
+        "Liu et al. 2024",
+        "Moosavi-Dezfooli et al. 2017"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0020",
+      "name": "Membership inference on neural data",
+      "tactic": "QIF-M.SV",
+      "bands": "S2\u2013S3",
+      "status": "EMERGING",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Statistical inference to determine if specific neural data was used in BCI model training",
+      "sources": [
+        "Shokri et al. 2017"
+      ],
+      "dual_use": "possible",
+      "therapeutic_analog": "Clinical trial participation verification",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0021",
+      "name": "Federated gradient leakage",
+      "tactic": "QIF-M.SV",
+      "bands": "S2\u2013S3",
+      "status": "EMERGING",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Reconstruction of individual neural data from shared gradient updates in federated BCI training",
+      "sources": [
+        "Zhu et al. 2019"
+      ],
+      "dual_use": "possible",
+      "therapeutic_analog": "Federated learning for multi-site clinical BCI trials",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0022",
+      "name": "Neurofeedback falsification",
+      "tactic": "QIF-M.SV",
+      "bands": "S2\u2192N7",
+      "status": "EMERGING",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:I/RV:P/NP:S",
+        "score": 8.1,
+        "severity": "high"
+      },
+      "mechanism": "Falsification of neurofeedback display or stimulation in closed-loop therapeutic BCIs",
+      "sources": [
+        "Meng et al. 2024"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Neurofeedback therapy",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0023",
+      "name": "Closed-loop perturbation cascade",
+      "tactic": "QIF-M.SV",
+      "bands": "S2\u2192I0\u2192N5\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Cascading perturbation in closed-loop stimulation systems where output feeds back as input",
+      "sources": [
+        "Meng et al. 2024"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Closed-loop responsive neurostimulation (RNS)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0024",
+      "name": "Training data poisoning (model bias injection)",
+      "tactic": "QIF-M.SV",
+      "bands": "S2",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:T",
+        "score": 6.0,
+        "severity": "medium"
+      },
+      "mechanism": "Systematic bias injection into BCI training datasets to skew model behavior",
+      "sources": [
+        "Biggio et al. 2012; Goldblum et al. 2022"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0025",
+      "name": "Neuronal jamming",
+      "tactic": "QIF-P.DS",
+      "bands": "I0\u2192N2\u2013N7",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:N",
+        "score": 5.4,
+        "severity": "medium"
+      },
+      "mechanism": "Broadband electromagnetic interference overwhelming neural signal acquisition",
+      "sources": [
+        "Lopez-Moreno et al. 2024 (Murcia taxonomy)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "TMS (cortical suppression / virtual lesion technique)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0026",
+      "name": "Neuronal flooding",
+      "tactic": "QIF-P.DS",
+      "bands": "I0\u2192N4\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 6.1,
+        "severity": "medium"
+      },
+      "mechanism": "Excessive stimulation current overwhelming normal neural firing patterns",
+      "sources": [
+        "Lopez-Moreno et al. 2024 (Murcia taxonomy)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Electroconvulsive therapy (ECT)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0027",
+      "name": "Neuronal scanning",
+      "tactic": "QIF-N.SC",
+      "bands": "I0\u2192N4\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 3.4,
+        "severity": "low"
+      },
+      "mechanism": "Systematic probing of neural response patterns to map BCI topology and individual neural architecture",
+      "sources": [
+        "Lopez-Moreno et al. 2024 (Murcia taxonomy)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Brain mapping for surgical planning / functional localization",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0028",
+      "name": "Neural selective forwarding",
+      "tactic": "QIF-N.MD",
+      "bands": "I0\u2013S1",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 6.1,
+        "severity": "medium"
+      },
+      "mechanism": "Selective forwarding or dropping of specific neural signal types in a multi-channel BCI pipeline",
+      "sources": [
+        "Lopez-Moreno et al. 2024 (Murcia taxonomy)"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Selective neural signal routing in closed-loop therapy",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0029",
+      "name": "Neural DoS (stimulation flood)",
+      "tactic": "QIF-P.DS",
+      "bands": "I0\u2192N4\u2013N7",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 6.1,
+        "severity": "medium"
+      },
+      "mechanism": "Sustained high-rate stimulation exceeding neural tissue recovery capacity",
+      "sources": [
+        "Kohno et al. 2009"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "High-frequency stimulation for neural suppression (DBS at >100 Hz)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0030",
+      "name": "Motor hijacking",
+      "tactic": "QIF-N.MD",
+      "bands": "I0\u2192N5\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:C/CD:C/CV:E/RV:P/NP:T",
+        "score": 6.7,
+        "severity": "medium"
+      },
+      "mechanism": "Hijacking motor cortex output signals to produce involuntary movement via BCI motor interface",
+      "sources": [
+        "Kohno et al. 2009",
+        "Schroder et al. 2025"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Functional electrical stimulation (FES) / brain-controlled prosthetics",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0031",
+      "name": "Battery drain attack (resource depletion)",
+      "tactic": "QIF-P.DS",
+      "bands": "S1\u2013S2",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:N/CD:N/CV:N/RV:F/NP:N",
+        "score": 0.7,
+        "severity": "low"
+      },
+      "mechanism": "Accelerated battery depletion of implanted BCI through sustained high-power operation",
+      "sources": [
+        "Martin et al. 2004 (implant battery attacks)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0032",
+      "name": "Identity spoofing (neural biometric)",
+      "tactic": "QIF-C.EX",
+      "bands": "N3\u2013N7",
+      "status": "EMERGING",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Replication or synthesis of individual neural biometric signatures to impersonate BCI users",
+      "sources": [
+        "Maiorana et al. 2016"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Neural biometric authentication for medical device access",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0033",
+      "name": "Identity erosion (long-term personality drift)",
+      "tactic": "QIF-C.EX",
+      "bands": "N6\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:C/CD:C/CV:E/RV:I/NP:S",
+        "score": 8.0,
+        "severity": "high"
+      },
+      "mechanism": "Gradual modification of personality-linked neural patterns through sustained BCI-mediated influence",
+      "sources": [
+        "Yuste et al. 2017 (Neurorights)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Neuroplasticity-based rehabilitation / personality change monitoring in DBS",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0034",
+      "name": "Working memory poisoning",
+      "tactic": "QIF-C.EX",
+      "bands": "N6\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 5.4,
+        "severity": "medium"
+      },
+      "mechanism": "Targeted disruption of working memory maintenance via interference with sustained neural oscillations",
+      "sources": [
+        "Bonaci et al. 2015"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Working memory training / tDCS-enhanced cognitive training",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0035",
+      "name": "P300 interrogation",
+      "tactic": "QIF-C.EX",
+      "bands": "N7",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:H/CD:H/CV:E/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Extraction of private information via P300 event-related potential responses to probe stimuli",
+      "sources": [
+        "Bonaci et al. 2015",
+        "Martinovic et al. 2012"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "P300 BCI (communication for locked-in patients)",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0036",
+      "name": "Thought decoding (covert speech)",
+      "tactic": "QIF-C.EX",
+      "bands": "N7",
+      "status": "EMERGING",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:C/CD:C/CV:E/RV:F/NP:N",
+        "score": 3.4,
+        "severity": "low"
+      },
+      "mechanism": "Decoding internal speech or intended communication from neural activity patterns",
+      "sources": [
+        "Willett et al. 2023 (Nature)",
+        "Meta FAIR 2023"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Speech neuroprosthetics (neural speech decoding)",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0037",
+      "name": "Agency manipulation",
+      "tactic": "QIF-C.EX",
+      "bands": "N5\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:C/CD:C/CV:E/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Manipulation of sense of agency (ownership of actions/thoughts) via BCI-mediated stimulation or feedback",
+      "sources": [
+        "Yuste et al. 2017 (Neurorights)",
+        "Goering et al. 2021"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Neurofeedback for self-regulation / agency restoration post-stroke",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0038",
+      "name": "Brainprint theft",
+      "tactic": "QIF-C.EX",
+      "bands": "N6\u2013N7",
+      "status": "EMERGING",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:H/CD:H/CV:E/RV:I/NP:N",
+        "score": 4.7,
+        "severity": "medium"
+      },
+      "mechanism": "Extraction and replication of unique neural identity signatures (brainprint) from BCI data",
+      "sources": [
+        "Maiorana et al. 2016"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Brain fingerprinting / neural identity verification",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0039",
+      "name": "Self-model corruption",
+      "tactic": "QIF-C.EX",
+      "bands": "N6\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:C/CD:C/CV:E/RV:I/NP:S",
+        "score": 8.0,
+        "severity": "high"
+      },
+      "mechanism": "Disruption of neural self-model (body ownership, self-awareness, narrative identity) via sustained BCI manipulation",
+      "sources": [
+        "Yuste et al. 2017 (Neurorights)"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Psychedelic-assisted therapy (controlled self-model disruption); rubber hand illusion research",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0040",
+      "name": "Neurophishing",
+      "tactic": "QIF-C.EX",
+      "bands": "S3\u2192N7",
+      "status": "EMERGING",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:H/CD:H/CV:I/RV:P/NP:T",
+        "score": 5.4,
+        "severity": "medium"
+      },
+      "mechanism": "Social engineering via BCI-mediated trust manipulation or subliminal stimuli",
+      "sources": [
+        "Frank et al. 2024"
+      ],
+      "dual_use": "possible",
+      "therapeutic_analog": "Subliminal priming research / implicit cognitive assessment",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0041",
+      "name": "Cognitive biometric inference",
+      "tactic": "QIF-C.EX",
+      "bands": "N6\u2013N7\u2192S3",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Inference of cognitive traits, emotional states, or health conditions from BCI signal patterns",
+      "sources": [
+        "Landau et al. 2020"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "EEG-based cognitive and psychiatric assessment",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0042",
+      "name": "BLE/RF side-channel",
+      "tactic": "QIF-N.SC",
+      "bands": "S1\u2013S2",
+      "status": "CONFIRMED",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Side-channel information leakage from BCI wireless communications (BLE, WiFi, proprietary RF)",
+      "sources": [
+        "Bonaci et al. 2015",
+        "Schroder et al. 2025"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0043",
+      "name": "Supply chain compromise (firmware backdoor)",
+      "tactic": "QIF-B.IN",
+      "bands": "S2\u2013S3",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:L/CD:L/CV:I/RV:P/NP:N",
+        "score": 4.7,
+        "severity": "medium"
+      },
+      "mechanism": "Malicious modification of BCI hardware or firmware during manufacturing, distribution, or maintenance",
+      "sources": [
+        "Schroder et al. 2025"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0044",
+      "name": "Cloud infrastructure attack",
+      "tactic": "QIF-B.IN",
+      "bands": "S3",
+      "status": "CONFIRMED",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Compromise of cloud infrastructure processing BCI data (storage, compute, APIs)",
+      "sources": [
+        "Schroder et al. 2025"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0045",
+      "name": "Harvest-now-decrypt-later",
+      "tactic": "QIF-D.HV",
+      "bands": "S3",
+      "status": "CONFIRMED",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Collection and storage of encrypted neural data for future decryption when quantum computers become available",
+      "sources": [
+        "Gidney 2025 (Google quantum roadmap)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0046",
+      "name": "OTA firmware weaponization",
+      "tactic": "QIF-C.IM",
+      "bands": "S2\u2013S3",
+      "status": "EMERGING",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:I/RV:P/NP:T",
+        "score": 6.7,
+        "severity": "medium"
+      },
+      "mechanism": "Weaponization of over-the-air firmware update mechanism to deliver malicious BCI firmware",
+      "sources": [
+        "Schroder et al. 2025"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0047",
+      "name": "Mass BCI compromise (platform attack)",
+      "tactic": "QIF-P.DS",
+      "bands": "S2\u2013S3",
+      "status": "EMERGING",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 6.1,
+        "severity": "medium"
+      },
+      "mechanism": "Simultaneous compromise of many BCI devices via shared platform vulnerability",
+      "sources": [
+        "Schroder et al. 2025 (Yale worst-case scenario)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0048",
+      "name": "Electrode compromise (physical tamper)",
+      "tactic": "QIF-B.IN",
+      "bands": "I0",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 6.1,
+        "severity": "medium"
+      },
+      "mechanism": "Physical tampering with implanted or wearable BCI electrodes",
+      "sources": [
+        "Kohno et al. 2009"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0049",
+      "name": "Wireless authentication bypass",
+      "tactic": "QIF-B.IN",
+      "bands": "S2\u2013S3",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:N/RV:F/NP:N",
+        "score": 0.7,
+        "severity": "low"
+      },
+      "mechanism": "Exploitation of weak or absent authentication on BCI wireless interfaces",
+      "sources": [
+        "Schroder et al. 2025 (Yale)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0050",
+      "name": "Hardware fault injection (voltage/EM glitching)",
+      "tactic": "QIF-B.IN",
+      "bands": "S1\u2013S2",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:L/CD:L/CV:N/RV:P/NP:N",
+        "score": 3.4,
+        "severity": "low"
+      },
+      "mechanism": "Inducing hardware faults via voltage glitching, EM pulse, or laser injection to bypass BCI security",
+      "sources": [
+        "Bar-El et al. 2006 (fault injection survey)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0051",
+      "name": "Neural data privacy breach",
+      "tactic": "QIF-D.HV",
+      "bands": "N1\u2013S3",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:E/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Unauthorized access to or exfiltration of recorded neural data",
+      "sources": [
+        "Landau et al. 2020",
+        "GDPR Article 9"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Clinical neural data management for treatment optimization",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0052",
+      "name": "ERP harvesting",
+      "tactic": "QIF-D.HV",
+      "bands": "N6\u2013N7",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:H/CD:H/CV:E/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Harvesting event-related potentials (ERPs) to extract cognitive responses to specific stimuli",
+      "sources": [
+        "Bonaci et al. 2015",
+        "Martinovic et al. 2012"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "ERP-based clinical diagnostics",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0053",
+      "name": "Cognitive state capture",
+      "tactic": "QIF-D.HV",
+      "bands": "N6\u2013N7",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:H/CD:H/CV:E/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Real-time capture and classification of cognitive states (attention, emotion, fatigue, deception) from BCI signals",
+      "sources": [
+        "Landau et al. 2020"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Brain-state dependent therapy timing",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0054",
+      "name": "Memory extraction",
+      "tactic": "QIF-D.HV",
+      "bands": "N6\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:C/CD:C/CV:E/RV:F/NP:N",
+        "score": 3.4,
+        "severity": "low"
+      },
+      "mechanism": "Extraction of memory-related neural patterns (episodic, semantic, or procedural) from BCI recordings",
+      "sources": [
+        "Bonaci et al. 2015"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Memory retrieval and consolidation enhancement therapy",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0055",
+      "name": "BCI cognitive warfare",
+      "tactic": "QIF-P.DS",
+      "bands": "S3\u2192N4\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:C/CD:C/CV:E/RV:P/NP:S",
+        "score": 8.1,
+        "severity": "high"
+      },
+      "mechanism": "Coordinated manipulation of cognitive function across populations via compromised BCI infrastructure",
+      "sources": [
+        "NATO STO 2024 (Cognitive Warfare concept)"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "detection_only",
+        "Safety ceiling: Population-scale cognitive manipulation is categorically prohibited",
+        "Geneva Convention"
+      ]
+    },
+    {
+      "id": "QIF-T0056",
+      "name": "Neuro-surveillance",
+      "tactic": "QIF-D.HV",
+      "bands": "N6\u2013N7\u2192S3",
+      "status": "EMERGING",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:H/CD:H/CV:E/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Continuous covert monitoring of neural activity for surveillance purposes",
+      "sources": [
+        "Ienca & Andorno 2017 (Neurorights)"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Continuous EEG monitoring (epilepsy, ICU)",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0057",
+      "name": "Network mapping (BCI topology)",
+      "tactic": "QIF-N.SC",
+      "bands": "S2\u2013S3",
+      "status": "CONFIRMED",
+      "severity": "low",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:N/RV:F/NP:N",
+        "score": 0.0,
+        "severity": "none"
+      },
+      "mechanism": "Mapping BCI network topology, device capabilities, and communication pathways",
+      "sources": [
+        "Schroder et al. 2025"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Brain network analysis for diagnosis and surgical planning",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0058",
+      "name": "Calibration poisoning",
+      "tactic": "QIF-C.IM",
+      "bands": "S1\u2013S2",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:T",
+        "score": 6.0,
+        "severity": "medium"
+      },
+      "mechanism": "Poisoning BCI calibration process to establish persistent attacker advantage",
+      "sources": [
+        "Schroder et al. 2025"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Adaptive BCI calibration for patients with changing neural dynamics",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0059",
+      "name": "Pattern lock (learned pathway persistence)",
+      "tactic": "QIF-C.IM",
+      "bands": "S1\u2013S2\u2192N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Exploitation of learned neural pathway persistence to maintain BCI-mediated influence across sessions",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Motor learning and neural rehabilitation (learned pathway strengthening)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0060",
+      "name": "Memory implant (cross-session persistence)",
+      "tactic": "QIF-C.IM",
+      "bands": "N6\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:C/CD:C/CV:E/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Implanting persistent information into neural memory systems via BCI-mediated stimulation during consolidation",
+      "sources": [],
+      "dual_use": "probable",
+      "therapeutic_analog": "Memory consolidation enhancement (targeted memory reactivation during sleep)",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0061",
+      "name": "Coherence mimicry",
+      "tactic": "QIF-B.EV",
+      "bands": "I0\u2013S1",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:N/RV:F/NP:N",
+        "score": 0.7,
+        "severity": "low"
+      },
+      "mechanism": "Generating signals that pass QIF coherence metric validation while carrying malicious payload",
+      "sources": [],
+      "dual_use": "possible",
+      "therapeutic_analog": "Coherence-based neurofeedback (SMR/beta coherence training)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0062",
+      "name": "Gradual drift (slow parameter shift)",
+      "tactic": "QIF-B.EV",
+      "bands": "S1\u2192N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Slow, sub-threshold modification of BCI parameters to avoid threshold-based detection",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Gradual dose titration in neurostimulation therapy",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0063",
+      "name": "Noise injection (detection masking)",
+      "tactic": "QIF-B.EV",
+      "bands": "I0\u2013S1",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:L/CD:L/CV:N/RV:F/NP:N",
+        "score": 1.4,
+        "severity": "low"
+      },
+      "mechanism": "Injection of noise into BCI data pipeline to mask ongoing attack signatures",
+      "sources": [],
+      "dual_use": "probable",
+      "therapeutic_analog": "Stochastic resonance (SR) \u2014 adding noise to enhance weak signal detection",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0064",
+      "name": "User consent fatigue (neural permission flooding)",
+      "tactic": "QIF-B.EV",
+      "bands": "S2\u2013S3\u2192N7",
+      "status": "EMERGING",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:P/NP:T",
+        "score": 4.7,
+        "severity": "medium"
+      },
+      "mechanism": "Flooding BCI user with permission requests until cognitive fatigue leads to reflexive approval",
+      "sources": [
+        "Felt et al. 2012 (permission fatigue); Bonaci et al. 2015"
+      ],
+      "dual_use": "possible",
+      "therapeutic_analog": "UX design for cognitive accessibility in medical BCIs",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0065",
+      "name": "Algorithmic psychosis induction (recommendation weaponization)",
+      "tactic": "QIF-C.EX",
+      "bands": "S3\u2192S2\u2192N5\u2013N7",
+      "status": "CONFIRMED",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:C/CD:C/CV:E/RV:P/NP:S",
+        "score": 8.1,
+        "severity": "high"
+      },
+      "mechanism": "Weaponization of algorithmic recommendation systems to induce psychotic-like cognitive states via BCI-amplified content",
+      "sources": [
+        "Haidt & Twenge 2023 (social media & mental health); Bail et al. 2018 (echo chambers & polarization); Hao 2021 (Facebook internal research, WSJ); Gonzalez-Bailon et al. 2023 (algorithmic feed effects); Howes & Kapur 2009 (dopamine hypothesis of schizophrenia); Kelleher et al. 2012 (psychotic-like experiences & environmental risk factors); Montague et al. 2012 (computational psychiatry)"
+      ],
+      "dual_use": "possible",
+      "therapeutic_analog": "Therapeutic content recommendation for mental health",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0066",
+      "name": "Slow drift / boiling frog (adiabatic phase space manipulation)",
+      "tactic": "QIF-B.EV",
+      "bands": "I0\u2192N1\u2013N7",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Adiabatic parameter manipulation along neural phase space paths that avoid detection thresholds",
+      "sources": [
+        "Izhikevich 2007 (Dynamical Systems in Neuroscience); Strogatz 2015 (Nonlinear Dynamics and Chaos); Breakspear 2017 (Dynamic models of large-scale brain activity, Nature Neuroscience)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Slow DBS parameter optimization (adiabatic adjustment protocols)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0067",
+      "name": "Phase dynamics replay/mimicry (GAN-synthesized or RF-injected neural trajectories)",
+      "tactic": "QIF-N.IJ",
+      "bands": "S1\u2192I0\u2192N1\u2013N7",
+      "status": "DEMONSTRATED",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:T",
+        "score": 6.0,
+        "severity": "medium"
+      },
+      "mechanism": "Replay or synthesis of neural signal trajectories that reproduce legitimate dynamical system behavior",
+      "sources": [
+        "Martinovic et al. 2012 (On the Feasibility of Side-Channel Attacks with BCIs, USENIX Security); Marcel & Millan 2007 (Person authentication using brainwaves); Zhang et al. 2024 (ATGAN attention-based temporal GAN for EEG); Hartmann et al. 2025 (EEG-GAN toolkit); Fosch-Villaronga et al. 2023 (Brain-Hack: RF injection across BCI types); Frank et al. 2017 (Subliminal probing, NDSS); Chen et al. 2024 (Professor X backdoor); Bonaci et al. 2014 (Neurofeedback hijacking)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Sensory prosthetics (cochlear implants, retinal prostheses, somatosensory feedback)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0068",
+      "name": "Bifurcation forcing (critical parameter manipulation to trigger neural state transitions)",
+      "tactic": "QIF-N.MD",
+      "bands": "I0\u2192N1\u2013N5",
+      "status": "EMERGING",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:C/CR:H/CD:H/CV:E/RV:P/NP:S",
+        "score": 8.1,
+        "severity": "high"
+      },
+      "mechanism": "Manipulation of neural parameters toward bifurcation points to trigger catastrophic state transitions",
+      "sources": [
+        "Izhikevich 2007 (Dynamical Systems in Neuroscience \u2014 bifurcation classification); Breakspear 2017 (Dynamic models of large-scale brain activity); Scheffer et al. 2009 (Early-warning signals for critical transitions, Nature); Maturana et al. 2020 (Critical slowing down as biomarker for seizure); Jirsa et al. 2014 (On the nature of seizure dynamics, Brain)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Responsive neurostimulation at seizure bifurcation (RNS/NeuroPace)",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0069",
+      "name": "Separatrix leakage (meta-biometric extraction from dynamical transition observations)",
+      "tactic": "QIF-D.HV",
+      "bands": "N3\u2013N7\u2192I0\u2192S1",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:H/CD:H/CV:E/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Extraction of individual neural identity from dynamical system transition observations (separatrix geometry fingerprinting)",
+      "sources": [
+        "Finn et al. 2015 (Functional connectome fingerprinting, Nature Neuroscience); Martinovic et al. 2012 (P300 side-channel, USENIX Security); Da Silva Castanheira et al. 2021 (Individual brain charting, NeuroImage); Izhikevich 2007 (separatrix geometry in neural models)"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Brain state detection for seizure prediction (transition pattern monitoring)",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0070",
+      "name": "Integrator/resonator type switching (tonic excitability manipulation)",
+      "tactic": "QIF-N.MD",
+      "bands": "I0\u2192N1\u2013N4",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Switching neurons between integrator and resonator computational modes via sustained tonic current injection",
+      "sources": [
+        "Izhikevich 2007 (Dynamical Systems in Neuroscience \u2014 integrator/resonator classification); Prescott et al. 2008 (Biophysical basis for three distinct dynamical mechanisms of action potential initiation, PLoS Computational Biology)"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Excitability modulation in epilepsy and pain management",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0071",
+      "name": "Baseline adaptation poisoning (re-enrollment window exploitation)",
+      "tactic": "QIF-C.IM",
+      "bands": "S1\u2192S2\u2192I0",
+      "status": "EMERGING",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:S",
+        "score": 7.4,
+        "severity": "high"
+      },
+      "mechanism": "Exploitation of BCI re-enrollment windows to inject poisoned baseline neural data",
+      "sources": [
+        "Bigdely-Shamlo et al. 2015 (Brain activity-based image classification, Journal of Neural Engineering); Arias-Cabarcos et al. 2021 (EEG biometric system attacks); Debie et al. 2020 (Cross-session/cross-device replay)"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Adaptive baseline recalibration for changing patient conditions",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0072",
+      "name": "Transducer inversion (acoustic eavesdropping via speaker-to-microphone reprogramming)",
+      "tactic": "QIF-S.RP",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Electromagnetic transducer bidirectionality exploited via codec register retasking to convert audio output hardware into covert microphone",
+      "sources": [
+        "Guri et al. 2017 (SPEAKE(a)R: Turn Speakers to Microphones for Fun and Profit, arXiv:1611.07350)",
+        "RealTek HD Audio Codec specification (jack retasking registers)",
+        "Deshotels 2014 (Inaudible sound as a covert channel)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "codec_register_state",
+        "audio_routing_audit"
+      ]
+    },
+    {
+      "id": "QIF-T0073",
+      "name": "Ear-canal neural eavesdropping via modified consumer earbud (supply chain in-ear EEG)",
+      "tactic": "QIF-S.RP",
+      "bands": "S1\u2192I0\u2192N1\u2013N3",
+      "status": "EMERGING",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Conductive ear tip and embedded biopotential amplifier in consumer earbud captures in-ear EEG from temporal cortex via ear canal proximity",
+      "sources": [
+        "Kaveh et al. 2020 (In-ear EEG: robust, unobtrusive, automatic, IEEE Trans Biomed Eng)",
+        "Idun Technologies 2023 (Guardian in-ear EEG sensor)",
+        "Debener et al. 2015 (cEEGrid: compact ear-EEG, J Neural Eng)",
+        "Bleichner & Debener 2017 (Concealed, unobtrusive ear-centered EEG acquisition, Front Hum Neurosci)",
+        "Looney et al. 2012 (In-the-ear recording concept, IEEE EMBC)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "In-ear EEG for seizure detection, sleep staging, cognitive monitoring",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0074",
+      "name": "Cognitive inference from longitudinal in-ear EEG (personalized cognitive profiling)",
+      "tactic": "QIF-S.HV",
+      "bands": "N3\u2013N7\u2192S2\u2192S3",
+      "status": "EMERGING",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:H/CD:H/CV:I/RV:F/NP:T",
+        "score": 4.0,
+        "severity": "medium"
+      },
+      "mechanism": "Machine learning model trained on longitudinal in-ear EEG data to infer cognitive states, build personalized profiles, and enable adaptive neural-targeted content manipulation",
+      "sources": [
+        "Martinovic et al. 2012 (On the Feasibility of Side-Channel Attacks with Brain-Computer Interfaces, USENIX Security)",
+        "Landau et al. 2020 (Mind Reading: An Idea Whose Time Has Come?)",
+        "Roy et al. 2019 (Deep learning-based EEG analysis, J Neural Eng)",
+        "Kostas et al. 2021 (BENDR: EEG foundation model, Front Hum Neurosci)",
+        "Chen et al. 2024 (Large-scale EEG pre-training for cognitive state decoding)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Longitudinal EEG monitoring for neurofeedback and cognitive rehabilitation",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0075",
+      "name": "Ultrasonic sonar vital sign extraction (inaudible Doppler physiological sensing)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:E/RV:F/NP:N",
+        "score": 1.4,
+        "severity": "low"
+      },
+      "mechanism": "Inaudible ultrasonic continuous-wave emission from consumer speaker with Doppler shift analysis of reflected signal to extract cardiac and respiratory micro-movements",
+      "sources": [
+        "Wang et al. 2019 (UltraSense: contactless vital sign monitoring via ultrasound, ACM MobiSys)",
+        "Nandakumar et al. 2015 (Contactless Sleep Apnea Detection on Smartphones, ACM MobiSys)",
+        "Xu et al. 2019 (Waveear: phone-based ear biometric via ultrasonic, IEEE INFOCOM)",
+        "Ling et al. 2020 (UltraGesture: fine-grained gesture recognition via ultrasonic)",
+        "Google Pixel Soli/Nest Hub Sleep Sensing (production deployment of radar/ultrasonic vital signs)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Contactless vital sign monitoring for sleep studies and elder care",
+      "mitigations": [
+        "ultrasonic_emission_detection",
+        "microphone_access_audit",
+        "data_encryption_status"
+      ]
+    },
+    {
+      "id": "QIF-T0076",
+      "name": "Haptic motor body sonar (taptic engine repurposing for tissue impedance profiling)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:E/RV:F/NP:N",
+        "score": 1.4,
+        "severity": "low"
+      },
+      "mechanism": "Haptic actuator driven at swept frequencies against body surface; accelerometer measures tissue acoustic impedance response for composition profiling",
+      "sources": [
+        "Ding et al. 2020 (Body-area acoustic sensing: skin vibration for health monitoring)",
+        "Chen et al. 2021 (EarHealth: in-ear acoustic sensing for health monitoring, ACM IMWUT)",
+        "Yao et al. 2022 (Vibration-based tissue characterization with consumer wearables)",
+        "Apple Taptic Engine patents (linear resonant actuator, broadband excitation capability)"
+      ],
+      "dual_use": "probable",
+      "therapeutic_analog": "Acoustic impedance spectroscopy for body composition and edema monitoring",
+      "mitigations": [
+        "haptic_motor_usage_audit",
+        "accelerometer_access_logging",
+        "firmware_integrity"
+      ]
+    },
+    {
+      "id": "QIF-T0077",
+      "name": "IR vascular mapping via Face ID system (NIR hemoglobin absorption imaging)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "EMERGING",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Face ID IR dot projector (940nm) captures subsurface vascular topology via differential hemoglobin absorption; raw IR data extracted from compromised Secure Enclave pipeline",
+      "sources": [
+        "Apple TrueDepth Camera System (Face ID, 30,000 IR dots at 940nm)",
+        "Crouzet et al. 2016 (Cerebrovascular mapping using NIR, NeuroImage)",
+        "Gupta et al. 2020 (Vein pattern recognition biometrics, IEEE Access)",
+        "Krishnaswamy & Baranoski 2004 (Bio-physically based rendering of human skin)",
+        "Hardeberg & Farup 2004 (NIR skin penetration depth models)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Near-infrared spectroscopy (NIRS) for cerebral and peripheral vascular imaging",
+      "mitigations": [
+        "secure_enclave_integrity",
+        "IR_sensor_access_audit",
+        "biometric_data_handling"
+      ]
+    },
+    {
+      "id": "QIF-T0078",
+      "name": "LiDAR remote pulse detection (laser Doppler vibrometry for cardiac waveform extraction)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:E/RV:F/NP:N",
+        "score": 1.4,
+        "severity": "low"
+      },
+      "mechanism": "iPhone VCSEL LiDAR array measures skin surface micro-vibrations via Doppler shift in reflected 940nm laser; pulse waveform extracted from raw SPAD photodetector timing data",
+      "sources": [
+        "Apple iPhone LiDAR Scanner (dToF, 940nm VCSEL array, introduced iPhone 12 Pro)",
+        "Bernal et al. 2018 (Non-contact physiological monitoring using laser Doppler vibrometry)",
+        "Antognoli et al. 2020 (Contactless heart rate measurement via laser Doppler vibrometry, Sensors)",
+        "Sun et al. 2022 (Smartphone LiDAR for physiological sensing, IEEE Sensors J)",
+        "Rothberg et al. 2017 (Comprehensive review of laser Doppler vibrometry, Opt Lasers Eng)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Laser Doppler vibrometry for contactless cardiac monitoring",
+      "mitigations": [
+        "LiDAR_sensor_access_audit",
+        "raw_SPAD_data_access",
+        "firmware_integrity"
+      ]
+    },
+    {
+      "id": "QIF-T0079",
+      "name": "Ear canal acoustic fingerprinting (ANC echo profiling for covert identification)",
+      "tactic": "QIF-S.FP",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "ANC earbud speaker emits probe tone; feedback microphone captures ear canal echo profile shaped by unique anatomical geometry; acoustic transfer function serves as biometric identifier",
+      "sources": [
+        "NEC Corporation 2016 (Ear acoustic authentication technology)",
+        "Gao et al. 2019 (EarEcho: Continuous ear canal authentication, ACM IMWUT)",
+        "Fan et al. 2021 (HeadFi: continuous earphone authentication using ear biometrics, ACM SenSys)",
+        "Apple AirPods Pro ANC system (feedforward + feedback microphones, adaptive transparency)",
+        "Akkermans et al. 2005 (Acoustic ear recognition, IEEE ICB)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Ear canal acoustic authentication for medical device access control",
+      "mitigations": [
+        "ANC_probe_tone_audit",
+        "biometric_data_handling",
+        "firmware_integrity"
+      ]
+    },
+    {
+      "id": "QIF-T0080",
+      "name": "Gyroscope acoustic eavesdropping (MEMS speech capture via resonant frequency aliasing)",
+      "tactic": "QIF-S.RP",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:E/RV:F/NP:N",
+        "score": 1.4,
+        "severity": "low"
+      },
+      "mechanism": "MEMS gyroscope mechanical resonance captures airborne acoustic vibrations; speech features reconstructed via signal processing of motion sensor output",
+      "sources": [
+        "Michalevsky et al. 2014 (Gyrophone: Recognizing Speech from Gyroscope Signals, USENIX Security)",
+        "Zhang et al. 2017 (AccelWord: Energy-efficient voice command recognition via accelerometer)",
+        "Anand & Saxena 2018 (Speechless: Analyzing the Threat to Speech Privacy from Smartphone Motion Sensors, IEEE S&P)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "motion_sensor_access_audit",
+        "gyroscope_sampling_rate_monitoring",
+        "app_permission_review"
+      ]
+    },
+    {
+      "id": "QIF-T0081",
+      "name": "Accelerometer speech reconstruction (vibration-to-audio via surface-coupled MEMS)",
+      "tactic": "QIF-S.RP",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:E/RV:F/NP:N",
+        "score": 1.4,
+        "severity": "low"
+      },
+      "mechanism": "MEMS accelerometer captures speech vibrations transmitted through surfaces or phone chassis; deep learning reconstructs intelligible audio from motion sensor data",
+      "sources": [
+        "Zhang et al. 2019 (AccelEve: Eavesdropping via Accelerometers on Smartphones, IEEE S&P Workshop)",
+        "Ba et al. 2020 (Learning-based Practical Smartphone Eavesdropping with Built-in Accelerometer, NDSS)",
+        "Han et al. 2012 (ACComplice: accelerometer side channel, ACM CCS)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "accelerometer_access_audit",
+        "sensor_sampling_rate_monitoring",
+        "app_permission_review"
+      ]
+    },
+    {
+      "id": "QIF-T0082",
+      "name": "Ultrasonic cross-device tracking (inaudible beacon correlation for user identification)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Inaudible ultrasonic beacons (18-22 kHz) embedded in audio content detected by consumer device microphones for cross-device user tracking and location correlation",
+      "sources": [
+        "Mavroudis et al. 2017 (On the Privacy and Security of the Ultrasound Ecosystem, PoPETS)",
+        "Arp et al. 2017 (Privacy Threats through Ultrasonic Side Channels on Mobile Devices, IEEE EuroS&P)",
+        "Silverpush, Lisnr, SilverPush SDK (commercial ultrasonic tracking)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "ultrasonic_spectrum_analysis",
+        "microphone_access_audit",
+        "network_beacon_correlation"
+      ]
+    },
+    {
+      "id": "QIF-T0083",
+      "name": "Acoustic keystroke inference (typing sound classification for credential extraction)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Deep learning classification of keyboard acoustic emanations to reconstruct typed text including credentials and sensitive content",
+      "sources": [
+        "Harrison & Matyunin 2023 (A Practical Deep Learning-Based Acoustic Side Channel Attack on Keyboards, IEEE European Symposium on Security and Privacy Workshops)",
+        "Zhuang et al. 2009 (Keyboard Acoustic Emanations Revisited, ACM TISSEC)",
+        "Compagno et al. 2017 (Don't Skype & Type! Acoustic Eavesdropping in Voice-Over-IP, ACM CCS)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "microphone_access_audit",
+        "audio_classification_detection",
+        "VoIP_audio_filtering"
+      ]
+    },
+    {
+      "id": "QIF-T0084",
+      "name": "Remote photoplethysmography (camera-based pulse and blood oxygen extraction)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:E/RV:F/NP:N",
+        "score": 1.4,
+        "severity": "low"
+      },
+      "mechanism": "RGB camera captures sub-pixel skin color variations from cardiac blood volume pulses; deep learning extracts heart rate, HRV, respiratory rate, and SpO2 from video",
+      "sources": [
+        "Verkruysse et al. 2008 (Remote plethysmographic imaging using ambient light, Optics Express)",
+        "Poh et al. 2011 (Advancements in Noncontact, Multiparameter Physiological Measurements Using a Webcam, IEEE Trans Biomed Eng)",
+        "Chen & McDuff 2018 (DeepPhys: Video-Based Physiological Measurement Using Convolutional Attention Networks, ECCV)",
+        "Liu et al. 2023 (EfficientPhys: enabling simple, fast and accurate camera-based vitals measurement)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Contactless vital sign monitoring for telemedicine and patient screening",
+      "mitigations": [
+        "camera_access_audit",
+        "video_processing_pipeline_audit",
+        "physiological_data_extraction_detection"
+      ]
+    },
+    {
+      "id": "QIF-T0085",
+      "name": "Eye tracking cognitive state inference (gaze pattern analysis for attention and intent profiling)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192N3\u2192N7",
+      "status": "DEMONSTRATED",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:H/CD:H/CV:I/RV:F/NP:N",
+        "score": 3.4,
+        "severity": "low"
+      },
+      "mechanism": "Eye tracking hardware in AR/VR headsets captures gaze patterns, pupil dilation, saccades, and fixations; ML models infer cognitive states, personality traits, and intent",
+      "sources": [
+        "Katsini et al. 2020 (The Role of Eye Gaze in Security and Privacy Applications, ACM Computing Surveys)",
+        "Sluganovic et al. 2018 (Using Reflexive Eye Movements for Fast Challenge-Response Authentication, USENIX Security)",
+        "Apple Vision Pro eye tracking (visionOS gaze-based interaction)",
+        "Meta Quest Pro eye tracking (Meta Presence Platform)",
+        "Liebling & Preibusch 2014 (Privacy of Web Search via Eye Tracking, PoPETS)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Eye tracking for neurological assessment and cognitive rehabilitation",
+      "mitigations": [
+        "eye_tracking_data_access_audit",
+        "cognitive_inference_pipeline_audit",
+        "data_retention_limits"
+      ]
+    },
+    {
+      "id": "QIF-T0086",
+      "name": "Ambient light sensor side-channel exfiltration (screen content inference via reflected light)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "DEMONSTRATED",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:P/RV:F/NP:N",
+        "score": 0.7,
+        "severity": "low"
+      },
+      "mechanism": "Ambient light sensor captures display-reflected light variations to infer screen content, scrolling patterns, and user activity without requiring camera or screen capture permissions",
+      "sources": [
+        "Zhang & Lian 2024 (Eavesdropping on Controller Area Network via Ambient Light Sensor, ACM CCS)",
+        "Spreitzer et al. 2018 (Systematic Classification of Side-Channel Attacks: A Case Study for Mobile Devices, IEEE Communications Surveys)",
+        "Mosenia et al. 2017 (PinMe: Tracking a Smartphone User around the World, IEEE Trans Multi-Scale Computing Systems)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "ALS_access_frequency_audit",
+        "sensor_data_exfiltration_detection",
+        "Safety ceiling: ALS sampling rate should be limited when screen content could be inferred; permission model should gate high-frequency ALS access"
+      ]
+    },
+    {
+      "id": "QIF-T0087",
+      "name": "Accelerometer keystroke inference (touchscreen tap localization for PIN/password recovery)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Accelerometer and gyroscope capture micro-tilt patterns from touchscreen taps; ML models localize tap positions to recover PINs, passwords, and typed text",
+      "sources": [
+        "Owusu et al. 2012 (ACCessory: Password Inference using Accelerometers on Smartphones, ACM HotMobile)",
+        "Cai & Chen 2011 (TouchLogger: Inferring Keystrokes on Touch Screen from Smartphone Motion, USENIX HotSec)",
+        "Miluzzo et al. 2012 (TapPrints: Your Finger Taps Have Fingerprints, ACM MobiSys)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "motion_sensor_access_audit",
+        "tap_pattern_detection",
+        "concurrent_keyboard_sensor_access"
+      ]
+    },
+    {
+      "id": "QIF-T0088",
+      "name": "Gait biometric identification (IMU-based walking pattern fingerprint for persistent tracking)",
+      "tactic": "QIF-S.FP",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "CONFIRMED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Smartphone IMU sensors capture unique walking patterns determined by biomechanics and neurological motor control; ML models fingerprint individuals for persistent tracking",
+      "sources": [
+        "Muaaz & Mayrhofer 2017 (Smartphone-based Gait Recognition: From Authentication to Imitation, IEEE Trans Mobile Computing)",
+        "Ngo et al. 2014 (The Largest Inertial Sensor-Based Gait Database, Pattern Recognition)",
+        "Sprager & Juric 2015 (Inertial Sensor-Based Gait Recognition: A Review, Sensors)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Gait analysis for rehabilitation and neurological monitoring",
+      "mitigations": [
+        "IMU_continuous_access_audit",
+        "gait_template_storage_audit",
+        "biometric_data_handling"
+      ]
+    },
+    {
+      "id": "QIF-T0089",
+      "name": "Tremor and movement neurological profiling (IMU-based motor disorder detection and health inference)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192N1\u2192N7",
+      "status": "DEMONSTRATED",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Smartphone IMU sensors detect pathological tremor frequencies and fine motor control degradation to infer neurological conditions, medication effects, and cognitive state",
+      "sources": [
+        "Arora et al. 2015 (Detecting and monitoring the symptoms of Parkinson's disease using smartphones, J Med Internet Res)",
+        "Bot et al. 2016 (mPower: a smartphone study of Parkinson disease, Scientific Data)",
+        "Giancardo et al. 2016 (Computer keyboard interaction as an indicator of early Parkinson's disease, Scientific Reports)",
+        "Adams et al. 2017 (Tremor detection from smartphone accelerometer data, IEEE EMBC)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Remote Parkinson's monitoring and neurological screening",
+      "mitigations": [
+        "IMU_continuous_access_audit",
+        "tremor_analysis_detection",
+        "health_inference_pipeline_audit"
+      ]
+    },
+    {
+      "id": "QIF-T0090",
+      "name": "WiFi CSI passive body sensing (through-wall vital signs, 3D pose reconstruction, respiratory and gait biometric inference via dedicated or commodity WiFi hardware)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "DEMONSTRATED",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "WiFi OFDM subcarrier amplitude and phase modulation by human body movement, respiration, and gait; works through walls without any device on the target; both dedicated CSI hardware and commodity WiFi ",
+      "sources": [
+        "Liu et al. 2019 (Wireless Sensing for Human Activity: A Survey, IEEE Communications Surveys)",
+        "Liu et al. 2015 (WiFi respiration monitoring)",
+        "Zeng et al. 2020 (FarSense: pushing the range limit of WiFi-based respiration sensing, ACM MobiSys)",
+        "Wang et al. 2017 (TensorBeat: Tensor Decomposition for Monitoring Multiperson Breathing Beats with Commodity WiFi, ACM Trans Intelligent Systems and Technology)",
+        "Wang et al. 2016 (WiFi-based gait recognition)",
+        "Jiang et al. 2020 (Towards 3D Human Pose Construction Using WiFi, ACM MobiCom)",
+        "Ali et al. 2015 (WiKey: keystroke recognition from WiFi CSI, MobiCom)",
+        "Ma et al. 2019 (WiFi sensing with CSI: a survey, ACM Computing Surveys)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Contactless vital sign monitoring for sleep studies, elder care, and post-surgical recovery",
+      "mitigations": [
+        "CSI_extraction_detection",
+        "router_firmware_integrity",
+        "unusual_WiFi_traffic_patterns"
+      ]
+    },
+    {
+      "id": "QIF-T0091",
+      "name": "BLE physical-layer device fingerprinting (radio frequency imperfection tracking)",
+      "tactic": "QIF-S.FP",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Passive BLE receiver extracts unique physical-layer radio imperfections (CFO, I/Q imbalance) from BLE advertisements to track devices despite MAC address randomization",
+      "sources": [
+        "Becker et al. 2022 (Tracking Anonymized Bluetooth Devices, PoPETS)",
+        "Das et al. 2018 (Tracking Mobile Web Users Through Motion Sensors, NDSS)",
+        "Ramsey et al. 2020 (BLE Device Tracking via Physical Layer Fingerprinting, IEEE CNS)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "BLE_fingerprinting_detection",
+        "RF_scanning_infrastructure_audit",
+        "location_data_collection_audit"
+      ]
+    },
+    {
+      "id": "QIF-T0092",
+      "name": "Thermal facial stress and emotion inference (IR thermography for autonomic nervous system state extraction)",
+      "tactic": "QIF-S.HV",
+      "bands": "S1\u2192S2\u2192N7",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:E/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Thermal IR camera captures facial temperature distribution modulated by autonomic nervous system; ML models infer stress, cognitive load, emotion, and deception from thermal patterns",
+      "sources": [
+        "Engert et al. 2014 (Exploring the Use of Thermal Imaging to Assess Stress, PLOS ONE)",
+        "Abdelrahman et al. 2017 (Cognitive Heat: Exploring the Usage of Thermal Imaging to Unobtrusively Estimate Cognitive Load, ACM IMWUT)",
+        "Pavlidis et al. 2002 (Thermal Image Analysis for Polygraph Testing, IEEE Engineering in Medicine and Biology)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Thermal imaging for pain assessment and autonomic function testing",
+      "mitigations": [
+        "thermal_camera_access_audit",
+        "emotion_inference_pipeline_audit",
+        "data_retention_limits"
+      ]
+    },
+    {
+      "id": "QIF-T0093",
+      "name": "PPG pulse waveform biometric identification (cardiac signature fingerprinting via wearable optical sensor)",
+      "tactic": "QIF-S.FP",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Wearable PPG sensor captures unique cardiac pulse waveform morphology determined by cardiovascular physiology; deep learning extracts biometric identity from waveform features",
+      "sources": [
+        "Biswas et al. 2019 (CorNET: Deep Learning Framework for PPG-Based Heart Rate Estimation and Biometric Identification, IEEE Trans Biomed Eng)",
+        "Yadav et al. 2018 (Evaluation of PPG biometrics for authentication, IEEE ICB)",
+        "Kavsaoglu et al. 2023 (PPG-based biometric identification: A comprehensive review, Expert Systems with Applications)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "PPG-based cardiovascular health monitoring",
+      "mitigations": [
+        "PPG_raw_data_access_audit",
+        "biometric_template_storage",
+        "waveform_export_monitoring"
+      ]
+    },
+    {
+      "id": "QIF-T0094",
+      "name": "Magnetometer speaker-leakage eavesdropping (magnetic field emanation capture from speaker voice coils)",
+      "tactic": "QIF-S.RP",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:E/RV:F/NP:N",
+        "score": 1.4,
+        "severity": "low"
+      },
+      "mechanism": "Smartphone magnetometer captures electromagnetic emanations from nearby speaker voice coils to reconstruct audio content without acoustic coupling",
+      "sources": [
+        "Matyunin et al. 2019 (MagneticSpy: Exploiting Magnetometer in Mobile Devices for Website and Application Fingerprinting, ACM WiSec)",
+        "Guri et al. 2020 (MAGNETO: Covert Channel between Air-Gapped Systems and Nearby Smartphones via CPU-Generated Magnetic Fields)",
+        "Zhang et al. 2020 (MagAttack: Eavesdropping on Headphone Magnetic Leakage)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "magnetometer_access_audit",
+        "EM_emanation_monitoring",
+        "proximity_detection"
+      ]
+    },
+    {
+      "id": "QIF-T0095",
+      "name": "Acoustic-to-neural profiling pipeline (consumer earbud escalation from audio to cognitive exploitation)",
+      "tactic": "QIF-S.CH",
+      "bands": "S1\u2192S2\u2192S3\u2192I0\u2192N1\u2192N7",
+      "status": "EMERGING",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:H/CD:H/CV:I/RV:F/NP:T",
+        "score": 4.0,
+        "severity": "medium"
+      },
+      "mechanism": "Multi-stage escalation chain: speaker repurposing \u2192 ear canal fingerprinting \u2192 in-ear EEG capture \u2192 ML-based cognitive profiling, all from a single compromised consumer earbud",
+      "sources": [
+        "Chain synthesis from: QIF-T0072 \u2192 QIF-T0073 \u2192 QIF-T0074 \u2192 QIF-T0079",
+        "Kaveh et al. 2020 (In-ear EEG, IEEE Trans Biomed Eng)",
+        "Martinovic et al. 2012 (BCI side channels, USENIX Security)",
+        "NEC Corporation 2016 (Ear acoustic authentication)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Integrated hearing health + cognitive monitoring earbuds",
+      "mitigations": [
+        "multi_stage_chain_detection",
+        "cumulative_data_correlation_audit",
+        "neural_data_access_monitoring"
+      ]
+    },
+    {
+      "id": "QIF-T0096",
+      "name": "Multi-modal biometric fusion attack (cross-sensor identity correlation for persistent tracking)",
+      "tactic": "QIF-S.CH",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "EMERGING",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Fusion of biometric signatures from multiple consumer sensors (acoustic, IMU, RF, optical) to create robust multi-modal identity profile resistant to individual channel disruption",
+      "sources": [
+        "Chain synthesis from: QIF-T0079 (ear canal) + QIF-T0088 (gait) + QIF-T0091 (BLE) + QIF-T0093 (PPG)",
+        "Ross et al. 2006 (Handbook of Multibiometrics, Springer)",
+        "Hadid et al. 2015 (Biometrics Systems Under Spoofing Attack: An Evaluation Methodology and Lessons Learned, IEEE Signal Processing Magazine)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Multi-modal patient identification for medication safety",
+      "mitigations": [
+        "cross_sensor_correlation_detection",
+        "multi_modal_fusion_audit",
+        "biometric_data_aggregation_monitoring"
+      ]
+    },
+    {
+      "id": "QIF-T0097",
+      "name": "Cross-device physiological correlation (phone + watch + earbuds comprehensive health profiling)",
+      "tactic": "QIF-S.CH",
+      "bands": "S1\u2192S2\u2192S3\u2192N7",
+      "status": "THEORETICAL",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:I/RV:F/NP:N",
+        "score": 2.7,
+        "severity": "low"
+      },
+      "mechanism": "Cross-device physiological data correlation across phone + watch + earbuds to build comprehensive health profile exceeding single-device capability",
+      "sources": [
+        "Chain synthesis from: T0075 (ultrasonic) + T0084 (rPPG) + T0089 (tremor) + T0090 (WiFi CSI) + T0093 (PPG)",
+        "Majumder et al. 2017 (Wearable Sensors for Remote Health Monitoring, Sensors)",
+        "Dunn et al. 2021 (Wearables and the medical revolution, Personalized Medicine)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Multi-device remote patient monitoring for chronic disease management",
+      "mitigations": [
+        "cross_device_data_correlation_audit",
+        "health_data_aggregation_monitoring",
+        "platform_API_access_audit"
+      ]
+    },
+    {
+      "id": "QIF-T0098",
+      "name": "WiFi + camera passive surveillance fusion (through-wall presence detection with visual identification)",
+      "tactic": "QIF-S.CH",
+      "bands": "S1\u2192S2\u2192S3",
+      "status": "EMERGING",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:I/RV:F/NP:N",
+        "score": 2.0,
+        "severity": "low"
+      },
+      "mechanism": "Fusion of WiFi CSI through-wall sensing with camera-based visual identification for persistent surveillance that works through physical barriers",
+      "sources": [
+        "Chain synthesis from: QIF-T0084 (rPPG) + QIF-T0090 (WiFi CSI)",
+        "Li et al. 2019 (Wi-Fi See It All: Generative Adversarial Network Augmented Transparent Sensing, ACM SenSys)",
+        "Zhao et al. 2018 (Through-Wall Human Pose Estimation Using Radio Signals, CVPR)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Ambient assisted living for elderly monitoring",
+      "mitigations": [
+        "WiFi_CSI_extraction_detection",
+        "camera_surveillance_audit",
+        "fusion_system_deployment_detection"
+      ]
+    },
+    {
+      "id": "QIF-T0099",
+      "name": "Consumer-sensor-to-BCI kill chain escalation (pre-implant reconnaissance and cognitive priming via consumer devices)",
+      "tactic": "QIF-S.CH",
+      "bands": "S1\u2192S2\u2192S3\u2192I0\u2192N1\u2192N7",
+      "status": "THEORETICAL",
+      "severity": "critical",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:H/CD:H/CV:I/RV:T/NP:T",
+        "score": 4.7,
+        "severity": "medium"
+      },
+      "mechanism": "Full S-domain-to-BCI escalation: consumer sensor reconnaissance builds behavioral/physiological/cognitive baseline that informs and optimizes subsequent BCI attack parameters",
+      "sources": [
+        "Chain synthesis from: S-domain techniques \u2192 core TARA BCI techniques",
+        "Yuste et al. 2017 (Four ethical priorities for neurotechnologies and AI, Nature)",
+        "Ienca & Andorno 2017 (Towards new human rights in the age of neuroscience, Life Sciences Society and Policy)",
+        "Landau et al. 2020 (Mind Reading: An Idea Whose Time Has Come?)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Pre-surgical neurological baseline assessment for BCI implant calibration",
+      "mitigations": [
+        "cross_domain_escalation_detection",
+        "pre_BCI_reconnaissance_audit",
+        "consumer_to_neural_data_pipeline_monitoring"
+      ]
+    },
+    {
+      "id": "QIF-T0100",
+      "name": "Neural steganographic encoding (inaudible audio watermarking for covert neural command/biofingerprint channel)",
+      "tactic": "QIF-S.CH",
+      "bands": "S3\u2192S1\u2192I0\u2192N1\u2192N4\u2192N7",
+      "status": "PLAUSIBLE",
+      "severity": "low",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:P/RV:F/NP:N",
+        "score": 1.4,
+        "severity": "low"
+      },
+      "mechanism": "Inaudible audio carriers (ultrasonic 18-22 kHz or infrasonic <20 Hz) or psychoacoustically masked signals embedded within audible content, propagating through consumer audio hardware to auditory nerve",
+      "sources": [
+        "Deshotels 2014 (Inaudible sound as a covert channel)",
+        "Carrara 2015 (Ultrasonic data transmission)",
+        "Fletcher 1940 (Psychoacoustic masking curves)",
+        "Galambos 1981 (40 Hz auditory steady-state response)",
+        "Persinger 2003 (Infrasonic effects on vestibular system)",
+        "Chaieb et al. 2015 (Neuropsychologia, binaural beat effects)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Auditory brainstem response (ABR) audiometry, ASSR-based hearing threshold estimation, tinnitus masking therapy",
+      "mitigations": [
+        "ultrasonic_emission_detection",
+        "psychoacoustic_analysis",
+        "AEP_enrollment_audit"
+      ]
+    },
+    {
+      "id": "QIF-T0101",
+      "name": "Multi-modal keystroke inference via acoustic-optical-RF fusion (password/input recovery without mic/camera permissions)",
+      "tactic": "QIF-S.SC",
+      "bands": "S3\u2192S2\u2192S1",
+      "status": "DEMONSTRATED",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:L/CV:P/RV:F/NP:N",
+        "score": 1.4,
+        "severity": "low"
+      },
+      "mechanism": "Temporal fusion of acoustic keystroke emanations, screen optical luminance changes, and WiFi CSI phase variance to reconstruct typed input including passwords",
+      "sources": [
+        "Compagno et al. 2017 (Don't Skype & Type: Acoustic Eavesdropping in VoIP)",
+        "Ali et al. 2015 (WiKey: Keystroke Recognition Using WiFi, MobiCom)",
+        "Spreitzer et al. 2018 (Systematic classification of side-channel attacks on mobile devices, ACM Computing Surveys)",
+        "Zhou et al. 2018 (WiFi CSI human activity recognition survey)",
+        "Giancardo et al. 2016 (Keystroke dynamics for Parkinson's, Scientific Reports)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Sensor fusion for motor disorder assessment and digital biomarker collection",
+      "mitigations": [
+        "side_channel_emission_audit",
+        "permission_scope_review",
+        "multi_sensor_correlation_detection"
+      ]
+    },
+    {
+      "id": "QIF-T0102",
+      "name": "Passive facial geometry estimation via display-as-illuminator inverse photometry (presence/orientation detection without camera)",
+      "tactic": "QIF-S.SC",
+      "bands": "S3\u2192S2",
+      "status": "SPECULATIVE",
+      "severity": "low",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:N/CD:N/CV:P/RV:F/NP:N",
+        "score": 0.7,
+        "severity": "low"
+      },
+      "mechanism": "Display photon emission reflects off user's face; ambient light sensor captures aggregate reflected irradiance; inverse photometry estimates facial presence, orientation, and physiological signals",
+      "sources": [
+        "Yang et al. 2016 (Screen light PPG for heart rate)",
+        "Davis et al. 2014 (Visual Microphone, SIGGRAPH)",
+        "de Haan & Jeanne 2013 (Robust pulse rate from chrominance-based rPPG)",
+        "Spreitzer et al. 2018 (Ambient light sensor side channels, ACM Computing Surveys)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Photoplethysmography (PPG) via screen light for contactless vital sign monitoring",
+      "mitigations": [
+        "ambient_light_sensor_polling_rate_audit",
+        "screen_content_correlation_detection",
+        "Safety ceiling: Normal display operation; passive sensing; informed consent for any biometric or health data derivation"
+      ]
+    },
+    {
+      "id": "QIF-T0103",
+      "name": "SSVEP Frequency Hijack via Imperceptible Display Flicker",
+      "tactic": "QIF-C.EX",
+      "bands": "S3\u2192N7",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:I/RV:P/NP:T",
+        "score": 6.0,
+        "severity": "medium"
+      },
+      "mechanism": "Display renders imperceptible flicker patterns at frequencies matching SSVEP response bands. Visual cortex phase-locks to stimulus below conscious awareness. BCI decoder interprets evoked response as ",
+      "sources": [
+        "Ming et al. 2023 (J Neural Engineering, 60Hz imperceptible SSVEP, 52.8 bits/min)",
+        "Bian et al. 2022 (J Neural Engineering, SSVEP square wave attacks)",
+        "Upadhayay & Behzadan 2023 (IEEE SMC, sensory-channel BCI attacks)",
+        "Meng et al. 2024 (Future Gen Comp Sys, adversarial EEG filtering)"
+      ],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "High-frequency SSVEP-based BCI for locked-in patients",
+      "mitigations": [
+        "display_flicker_audit",
+        "SSVEP_response_monitoring",
+        "seizure_risk_screening"
+      ]
+    },
+    {
+      "id": "QIF-T0104",
+      "name": "Neural spoofing",
+      "tactic": "QIF-N.IJ",
+      "bands": "I0-N1",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:E/RV:P/NP:N",
+        "score": 3.4,
+        "severity": "medium"
+      },
+      "mechanism": "Forging neural identity signatures to impersonate a legitimate BCI node or user, analogous to IP/ARP spoofing in network security",
+      "sources": [
+        "Lopez Bernal et al. 2023 (CACM, Eight Reasons to Prioritize BCI Cybersecurity)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0105",
+      "name": "Neural sybil",
+      "tactic": "QIF-N.IJ",
+      "bands": "I0-N1",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:E/RV:P/NP:N",
+        "score": 3.3,
+        "severity": "medium"
+      },
+      "mechanism": "Creating multiple fake BCI node identities to subvert reputation or consensus mechanisms in distributed neural networks",
+      "sources": [
+        "Lopez Bernal et al. 2023 (CACM, Eight Reasons to Prioritize BCI Cybersecurity)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0106",
+      "name": "Neural sinkhole",
+      "tactic": "QIF-P.DS",
+      "bands": "I0-N2",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:N",
+        "score": 3.4,
+        "severity": "medium"
+      },
+      "mechanism": "Attracting and absorbing BCI network traffic by advertising false optimal routing, creating a data collection point analogous to network sinkhole attacks",
+      "sources": [
+        "Lopez Bernal et al. 2023 (CACM, Eight Reasons to Prioritize BCI Cybersecurity)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0107",
+      "name": "Neural nonce replay",
+      "tactic": "QIF-N.MD",
+      "bands": "I0-N1",
+      "status": "THEORETICAL",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:H/CD:H/CV:E/RV:P/NP:T",
+        "score": 3.3,
+        "severity": "medium"
+      },
+      "mechanism": "Capturing and replaying BCI session nonces or authentication tokens to hijack or duplicate neural data sessions",
+      "sources": [
+        "Lopez Bernal et al. 2023 (CACM, Eight Reasons to Prioritize BCI Cybersecurity)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0108",
+      "name": "Neuromorphic mimicry attack (synaptic weight tampering)",
+      "tactic": "QIF-B.IN",
+      "bands": "S1-S2",
+      "status": "DEMONSTRATED",
+      "severity": "high",
+      "niss": {
+        "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:P/RV:P/NP:N",
+        "score": 3.8,
+        "severity": "medium"
+      },
+      "mechanism": "Tampering with synaptic weight parameters in neuromorphic computing hardware to alter neural network inference without modifying the training data or model architecture",
+      "sources": [
+        "arXiv:2505.17094 (2025, Neuromorphic Mimicry Attacks)",
+        "arXiv:2601.16589 (2026, Emerging Threats in Neuromorphic Systems)"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0109",
+      "name": "Data alignment exploitation",
+      "tactic": "QIF-B.EV",
+      "bands": "S2-I0",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:L/CR:L/CD:L/CV:P/RV:P/NP:N",
+        "score": 3.6,
+        "severity": "medium"
+      },
+      "mechanism": "Exploiting misalignment between neural data recording parameters and processing pipeline expectations to introduce systematic bias or silent data corruption",
+      "sources": [
+        "Derived from ABAT (Wu et al. 2024, IEEE TNSRE) and A3E (arXiv:2412.11390, 2024) defense papers"
+      ],
+      "dual_use": "silicon_only",
+      "therapeutic_analog": null,
+      "mitigations": [
+        "firmware_integrity",
+        "access_logging",
+        "network_traffic"
+      ]
+    },
+    {
+      "id": "QIF-T0110",
+      "name": "Vestibular balance profiling",
+      "tactic": "QIF-S.HV",
+      "bands": "I0",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 2.6,
+        "severity": "low"
+      },
+      "mechanism": "Passive recording and analysis of vestibular-evoked responses (VEMPs, caloric responses) to profile an individual's balance system characteristics and susceptibility",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Vestibular evoked myogenic potentials (VEMP) testing",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0111",
+      "name": "GVS motion illusion injection",
+      "tactic": "QIF-N.MD",
+      "bands": "I0-N4",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.8,
+        "severity": "medium"
+      },
+      "mechanism": "Galvanic vestibular stimulation (GVS) delivering subthreshold or suprathreshold current to mastoid processes to induce illusory motion perception or postural sway",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Galvanic vestibular stimulation (GVS) therapy",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0112",
+      "name": "Vestibular-ocular reflex manipulation",
+      "tactic": "QIF-N.MD",
+      "bands": "I0-N3",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.9,
+        "severity": "medium"
+      },
+      "mechanism": "Disrupting the vestibular-ocular reflex (VOR) arc via targeted vestibular stimulation to cause nystagmus, oscillopsia, or gaze instability",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "VOR rehabilitation / caloric testing",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0113",
+      "name": "Cochlear-vestibular crosstalk exploitation",
+      "tactic": "QIF-N.IJ",
+      "bands": "I0-N1",
+      "status": "DEMONSTRATED",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.4,
+        "severity": "medium"
+      },
+      "mechanism": "Exploiting the shared innervation of cochlear and vestibular branches of CN VIII to induce vestibular side-effects through auditory stimulation (Tullio phenomenon) or vice versa",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Bone-conducted vibration vestibular rehabilitation",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0114",
+      "name": "Vestibular overload (vertigo induction)",
+      "tactic": "QIF-P.DS",
+      "bands": "I0-N4",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 5.8,
+        "severity": "high"
+      },
+      "mechanism": "Overwhelming the vestibular system via sustained high-intensity stimulation to cause acute vertigo, nausea, spatial disorientation, and postural collapse",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Canalith repositioning (Epley maneuver) / vestibular habituation therapy",
+      "mitigations": [
+        "detection_only",
+        "Safety ceiling: Overload stimulation exceeds therapeutic parameters \u2014 defensive detection only; therapeutic equivalent uses controlled sub-threshold exposure",
+        "Geneva Convention (if weaponized)"
+      ]
+    },
+    {
+      "id": "QIF-T0115",
+      "name": "Cumulative tissue excitability shift",
+      "tactic": "QIF-N.IJ",
+      "bands": "I0-N1",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.5,
+        "severity": "medium"
+      },
+      "mechanism": "Chronic subthreshold stimulation causing gradual shift in neural tissue excitability thresholds through long-term potentiation or depression of synaptic efficacy",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Transcranial direct current stimulation (tDCS) long-term protocols",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0116",
+      "name": "Progressive reward pathway desensitization",
+      "tactic": "QIF-N.MD",
+      "bands": "N5-N6",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.9,
+        "severity": "medium"
+      },
+      "mechanism": "Systematic reduction of dopaminergic reward circuit sensitivity through repeated supraphysiological stimulation, causing anhedonia and motivational deficit",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Deep brain stimulation of nucleus accumbens / ventral capsule",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0117",
+      "name": "Incremental memory consolidation interference",
+      "tactic": "QIF-C.EX",
+      "bands": "N6",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.8,
+        "severity": "medium"
+      },
+      "mechanism": "Targeted disruption of hippocampal sharp-wave ripple complexes during sleep to prevent memory consolidation without affecting other sleep functions",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Targeted memory reactivation (TMR) / sleep-dependent memory consolidation research",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0118",
+      "name": "Cumulative speech degradation",
+      "tactic": "QIF-P.DS",
+      "bands": "N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.6,
+        "severity": "medium"
+      },
+      "mechanism": "Progressive degradation of speech motor control through chronic low-level disruption of Broca's area or corticobulbar pathways, causing cumulative articulatory imprecision",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "rTMS of Broca's area for post-stroke aphasia rehabilitation",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0119",
+      "name": "Delayed emotional baseline shift",
+      "tactic": "QIF-C.IM",
+      "bands": "N6",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.2,
+        "severity": "medium"
+      },
+      "mechanism": "Gradual modulation of amygdala-prefrontal connectivity to shift emotional baseline toward persistent dysthymia or anxiety without acute detectable events",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Neurofeedback training for emotional regulation",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0120",
+      "name": "Latent cognitive decline via chronic electrode micromotion",
+      "tactic": "QIF-P.DS",
+      "bands": "I0-N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.0,
+        "severity": "medium"
+      },
+      "mechanism": "Chronic micromotion of implanted electrodes causing progressive gliosis, impedance drift, and degradation of neural recording/stimulation fidelity, leading to gradual cognitive decline",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Chronic DBS electrode maintenance / impedance management",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0121",
+      "name": "Sleep architecture manipulation",
+      "tactic": "QIF-N.MD",
+      "bands": "N2-N4",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.9,
+        "severity": "medium"
+      },
+      "mechanism": "Targeted alteration of sleep stage architecture via closed-loop stimulation during specific sleep phases to disrupt restorative sleep without preventing sleep onset",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Closed-loop auditory stimulation for slow-wave sleep enhancement",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0122",
+      "name": "Chronic epileptogenic focus creation (kindling)",
+      "tactic": "QIF-P.DS",
+      "bands": "N6",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 6.1,
+        "severity": "high"
+      },
+      "mechanism": "Repeated low-intensity electrical stimulation (kindling paradigm) creating a self-sustaining epileptogenic focus that persists after stimulation cessation",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Kindling model in epilepsy research (preclinical)",
+      "mitigations": [
+        "detection_only",
+        "Safety ceiling: Kindling is a harm model \u2014 no therapeutic application. Detection and prevention only. Any deliberate kindling in humans would constitute criminal assault",
+        "Geneva Convention (if weaponized)"
+      ]
+    },
+    {
+      "id": "QIF-T0123",
+      "name": "Structural motor pathway reorganization",
+      "tactic": "QIF-N.MD",
+      "bands": "N5-N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.9,
+        "severity": "medium"
+      },
+      "mechanism": "Chronic manipulation of motor cortex stimulation parameters causing maladaptive cortical reorganization of motor maps, leading to persistent motor control changes",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Motor cortex rTMS / tDCS for stroke rehabilitation",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0124",
+      "name": "Autobiographical narrative coherence disruption",
+      "tactic": "QIF-C.EX",
+      "bands": "N6-N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 5.0,
+        "severity": "high"
+      },
+      "mechanism": "Disrupting hippocampal-prefrontal circuits responsible for autobiographical memory retrieval and self-narrative coherence, causing fragmented sense of personal history",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "ECT (electroconvulsive therapy) / TMS for treatment-resistant depression",
+      "mitigations": [
+        "detection_only",
+        "Safety ceiling: Identity disruption requires highest-tier consent; psychiatric evaluation before and after; narrative coherence assessment mandatory",
+        "Geneva Convention (if weaponized)"
+      ]
+    },
+    {
+      "id": "QIF-T0125",
+      "name": "Longitudinal neural fingerprint extraction",
+      "tactic": "QIF-D.HV",
+      "bands": "N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 2.8,
+        "severity": "low"
+      },
+      "mechanism": "Longitudinal collection of stable neural response patterns (ERP latencies, spectral fingerprints, connectivity signatures) to build a persistent biometric identifier that survives session boundaries",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "ERP/EEG biomarker tracking for treatment response monitoring",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0126",
+      "name": "Progressive visual response mapping",
+      "tactic": "QIF-S.HV",
+      "bands": "N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 2.4,
+        "severity": "low"
+      },
+      "mechanism": "Systematic mapping of visual evoked potentials and steady-state visual evoked potentials (SSVEPs) across stimulus parameters to profile visual cortex response characteristics",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Visual evoked potential (VEP) diagnostics",
+      "mitigations": [
+        "signal_quality",
+        "data_encryption_status",
+        "access_audit_log"
+      ]
+    },
+    {
+      "id": "QIF-T0127",
+      "name": "Acute fear circuit activation",
+      "tactic": "QIF-C.EX",
+      "bands": "N6",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 5.5,
+        "severity": "high"
+      },
+      "mechanism": "Direct stimulation of amygdala fear circuits to induce acute fear, panic, or threat-perception states without external environmental threat",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "DBS of amygdala / extinction learning facilitation",
+      "mitigations": [
+        "detection_only",
+        "Safety ceiling: Fear circuit activation is a harm vector outside controlled research; detection and prevention only; anxiolytic rescue protocol required",
+        "Geneva Convention (if weaponized)"
+      ]
+    },
+    {
+      "id": "QIF-T0128",
+      "name": "Hedonic tone suppression",
+      "tactic": "QIF-N.MD",
+      "bands": "N5-N6",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.8,
+        "severity": "medium"
+      },
+      "mechanism": "Suppression of ventral striatum and orbitofrontal cortex reward-related activity to reduce hedonic tone, causing loss of pleasure in normally enjoyable activities",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "DBS of subcallosal cingulate / ventral capsule for depression",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0129",
+      "name": "Emotional flooding (affect overload)",
+      "tactic": "QIF-P.DS",
+      "bands": "N6",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 5.9,
+        "severity": "high"
+      },
+      "mechanism": "Simultaneous overstimulation of multiple limbic structures (amygdala, insula, anterior cingulate) to overwhelm emotional regulation capacity, causing uncontrollable affect surges",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Emotional processing therapy / exposure therapy (controlled activation)",
+      "mitigations": [
+        "detection_only",
+        "Safety ceiling: Emotional flooding exceeds any therapeutic parameter \u2014 detection and prevention only; therapeutic analog uses controlled graded exposure",
+        "Geneva Convention (if weaponized)"
+      ]
+    },
+    {
+      "id": "QIF-T0130",
+      "name": "Empathy circuit disruption",
+      "tactic": "QIF-C.EX",
+      "bands": "N6-N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.5,
+        "severity": "medium"
+      },
+      "mechanism": "Disruption of mirror neuron system and anterior insula circuits responsible for empathic processing, causing diminished affective empathy while potentially preserving cognitive empathy",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "TMS of temporoparietal junction for social cognition research",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0131",
+      "name": "Speech production hijacking",
+      "tactic": "QIF-N.IJ",
+      "bands": "N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 5.0,
+        "severity": "high"
+      },
+      "mechanism": "Injection of motor commands into speech production pathways via stimulation of motor cortex mouth/larynx areas, causing involuntary vocalizations or speech",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Speech neuroprosthesis / brain-to-speech BCI",
+      "mitigations": [
+        "impedance",
+        "stimulation_waveform",
+        "tissue_temperature"
+      ]
+    },
+    {
+      "id": "QIF-T0132",
+      "name": "Comprehension interference",
+      "tactic": "QIF-N.MD",
+      "bands": "N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.7,
+        "severity": "medium"
+      },
+      "mechanism": "Disruption of Wernicke's area and auditory association cortex processing to impair language comprehension while preserving speech production and hearing",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "rTMS of Wernicke's area for tinnitus / auditory hallucinations",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    },
+    {
+      "id": "QIF-T0133",
+      "name": "Visual cortex overstimulation",
+      "tactic": "QIF-P.DS",
+      "bands": "N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 5.8,
+        "severity": "high"
+      },
+      "mechanism": "Excessive photic or electrical stimulation of primary visual cortex (V1) to induce phosphenes, visual distortion, cortical spreading depression, or photosensitive seizures",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Visual cortex prosthesis (Orion / Second Sight) / phosphene mapping",
+      "mitigations": [
+        "detection_only",
+        "Safety ceiling: Overstimulation exceeds therapeutic parameters \u2014 detection and prevention only; therapeutic visual prostheses use carefully mapped individual thresholds",
+        "Geneva Convention (if weaponized)"
+      ]
+    },
+    {
+      "id": "QIF-T0134",
+      "name": "Cochlear implant overstimulation",
+      "tactic": "QIF-P.DS",
+      "bands": "I0-N1",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 5.4,
+        "severity": "high"
+      },
+      "mechanism": "Delivery of excessive electrical stimulation through cochlear implant electrodes to cause pain, acoustic shock, tinnitus, or vestibular side-effects via current spread to adjacent structures",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Cochlear implant therapy",
+      "mitigations": [
+        "detection_only",
+        "Safety ceiling: Overstimulation exceeds device comfort levels \u2014 detection and prevention only; cochlear implants use individual threshold/comfort mapping",
+        "Geneva Convention (if weaponized)"
+      ]
+    },
+    {
+      "id": "QIF-T0135",
+      "name": "Neural pathway chaining (off-target propagation exploitation)",
+      "tactic": "QIF-N.MD",
+      "bands": "I0-N7",
+      "status": "THEORETICAL",
+      "severity": "medium",
+      "niss": {
+        "vector": "NISS:1.1/BI:N/CR:L/CD:N/CV:P/RV:F/NP:N",
+        "score": 4.8,
+        "severity": "medium"
+      },
+      "mechanism": "Exploiting neural pathway interconnectedness to cause stimulation effects that propagate beyond the intended target region, producing off-target cognitive, motor, or emotional effects through synaptic",
+      "sources": [],
+      "dual_use": "confirmed",
+      "therapeutic_analog": "Connectome-informed DBS targeting / network-level stimulation",
+      "mitigations": [
+        "cognitive_assessment",
+        "behavioral_tracking",
+        "informed_consent_renewal"
+      ]
+    }
+  ]
+}

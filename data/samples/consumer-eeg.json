@@ -1,0 +1,19 @@
+{
+  "device_name": "OpenBCI Cyton 8-Channel EEG",
+  "device_class": "consumer-eeg",
+  "channels": 8,
+  "sample_rate": 250,
+  "signal_type": "EEG",
+  "connectivity": ["bluetooth-classic", "usb-serial"],
+  "transport_protocol": "LSL",
+  "transport_encryption": false,
+  "firmware": "open-source",
+  "secure_boot": false,
+  "data_storage": {
+    "formats": ["csv", "edf", "xdf"],
+    "encryption_at_rest": false,
+    "anonymization": "none"
+  },
+  "cloud_api": false,
+  "deployment": "research"
+}

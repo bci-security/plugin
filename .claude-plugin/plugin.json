@@ -1,0 +1,9 @@
+{
+  "name": "bci-security",
+  "description": "Threat modeling and security analysis for brain-computer interfaces and neurotechnology. 135 attack techniques, neural impact scoring, neuroethics guardrails, and code scanning for unsafe BCI patterns.",
+  "version": "1.0.0",
+  "author": {
+    "name": "QInnovate",
+    "email": "kevin@qinnovate.com"
+  }
+}
