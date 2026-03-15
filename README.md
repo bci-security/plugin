@@ -112,6 +112,23 @@ The difference between therapy and attack is consent, dosage, and oversight.
 - **8 Neuroethics Guardrails**: From Morse, Poldrack, Racine, Ienca, Kellmeyer, Wexler, Tennison, Vul/Eklund
 - **3 Sample Configs**: Consumer EEG, research system, clinical implant
 
+## Example Use Cases
+
+**Neurotech startup shipping a consumer EEG headband:**
+> Run `/bci-scan .` on your BrainFlow + BLE codebase. Get flagged for unencrypted Bluetooth streams and PII in EDF headers. Generate a threat model filtered to your device class. Export for your FDA premarket cybersecurity submission.
+
+**Medical device security team assessing an implanted BCI:**
+> Run `/bci explain QIF-T0001` to understand signal injection at the electrode-tissue interface. Use the threat modeler to map all 135 techniques against your device profile. Score each with NISS to prioritize remediation.
+
+**Researcher writing a BCI security paper:**
+> Use `/bci learn tara` to understand the threat taxonomy. Look up techniques by domain, severity, or evidence tier. Run the neuromodesty checker on your draft to catch overclaims before peer review.
+
+**Security engineer new to neurotechnology:**
+> Start with `/bci-scan --demo` to see a threat report in 30 seconds. Run `/bci learn quickstart` for a 5-minute overview. Use the glossary for unfamiliar terms. You already know CVSS and ATT&CK — NISS and TARA are the BCI equivalents.
+
+**Student exploring neurosecurity as a career:**
+> Install the plugin, run the demo, walk through the learning modules. The 135-technique catalog with evidence tiers and therapeutic analogs is a structured introduction to a field that barely exists yet. Get in early.
+
 ## Who This Is For
 
 - **Neurotech startups** building BCI products
