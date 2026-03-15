@@ -2,7 +2,7 @@
 
 BCI security toolkit for researchers, developers, and engineers. Threat modeling, vulnerability scoring, pattern detection, and neuroethics compliance for brain-computer interfaces.
 
-**The first BCI toolkit for AI coding platforms.** No other tool provides structured neurosecurity analysis — threat taxonomies, neural impact scoring, or neuroethics compliance checking — inside a coding agent. As of March 2026, no equivalent exists in any AI coding platform marketplace.
+To our knowledge, no other tool provides structured neurosecurity analysis — threat taxonomies, neural impact scoring, or neuroethics compliance checking — inside an AI coding platform. As of March 2026, we are unaware of any equivalent in any AI coding platform marketplace.
 
 ## Requirements
 
@@ -158,18 +158,29 @@ Built for **Claude Code** and **Claude Coworker**. The plugin uses standard Clau
 
 ## Privacy & Data Handling
 
-This plugin runs entirely locally. It does not transmit, store, or retain any data from your environment.
+**How data flows:** This plugin contains no network calls and stores no data itself. However, it runs inside AI coding agents (Claude Code, Codex, etc.) that process your conversation — including scanned file contents — via their host API (e.g., Anthropic's servers). When you run `/bci-scan .`, the AI agent reads your files and sends that context to the API for analysis. The plugin's instructions and data are local; the AI processing is not.
 
-**Report sanitization is built in.** All generated reports automatically:
-- Strip absolute file paths (replaced with relative paths)
-- Redact API keys, tokens, and credentials found in scanned code
+**Do not scan files containing patient data, IRB-restricted data, or proprietary protocols** unless your institution's data governance policy permits sending that data to your AI platform provider. Review your AI platform's privacy policy and data processing agreement before scanning sensitive code.
+
+**Best-effort report sanitization.** The plugin instructs the AI to strip sensitive data from generated reports:
+- Replace absolute file paths with relative paths
+- Redact API keys, tokens, and credentials with `[REDACTED]`
 - Remove hostnames, IP addresses, and internal URLs
 - Exclude raw neural data samples, patient names, and subject identifiers
 - Omit organization names unless you explicitly opt in
 
-**Privacy of production data is your responsibility.** Even with sanitization, review all generated output before sharing externally. You know your environment better than any automated tool. If a report will leave your machine, read it first.
+This sanitization is performed by the AI following instructions, not by a deterministic code filter. It is a best-effort process. **Always review generated reports before sharing externally.**
 
-**Validation is your responsibility.** This plugin produces draft analyses, not certified assessments. All findings require independent verification by qualified security professionals before acting on them. Do not use output from this plugin as the sole basis for clinical, regulatory, or procurement decisions.
+**Validation is your responsibility.** This plugin produces draft analyses, not certified assessments. All findings require independent verification by qualified security professionals before acting on them. Do not use output from this plugin as the sole basis for clinical, regulatory, or procurement decisions, nor as a substitute for professional security engineering review.
+
+### Clinical & Regulated Use
+
+If you work in a clinical, research, or regulated environment:
+- **EEG and BCI signals may constitute Protected Health Information (PHI)** under HIPAA, or special category data under GDPR Article 9, when associated with identifiable individuals
+- **If you are a covered entity or business associate under HIPAA**, assess whether your use of this plugin — and your AI platform provider — requires a Business Associate Agreement
+- **If you are subject to GDPR**, verify that your organization's Data Processing Agreement with your AI platform provider covers Article 9 data before scanning neural data files
+- **IRB-approved research:** Consult your IRB and data governance office before using AI-assisted tools on codebases that reference human subjects data
+- This tool is **not a medical device** and does not constitute medical, clinical, or regulatory advice. Output does not satisfy any FDA premarket cybersecurity submission requirement, EU MDR cybersecurity requirement, or IEC 14971 risk management documentation requirement. Use in regulatory contexts requires independent review by a qualified regulatory affairs professional
 
 ## Important Caveats
 
