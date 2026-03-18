@@ -73,6 +73,14 @@ Paste any BCI-related text (paper draft, blog post, marketing copy) and the neur
 ```
 Produces a clean Markdown threat assessment you can share with colleagues, paste in Slack, or attach to a security review.
 
+## Design Philosophy
+
+This plugin is designed for **reviewing anonymized BCI data with AI coding agents**. It performs clinical and threat mapping based on patterns that research labs derive from their own data. The plugin does not process raw patient data, run on live devices, or replace clinical judgment.
+
+**Qinnovate provides pre-tagged samples from open research datasets** (Mendeley, PhysioNet, IEEE DataPort) so you can test the scanner, compliance checker, and threat modeler without needing your own BCI data. These samples come tagged with DSM-5 codes and TARA technique mappings for educational use.
+
+**The plugin is modular.** Each skill operates independently. Use the scanner alone, the compliance checker alone, or chain them together. Add new detection rules, PII patterns, or regulatory frameworks without touching existing skills. The data layer (JSON) is separate from the logic layer (SKILL.md), so you can update threat techniques or compliance requirements independently.
+
 ## What It Does
 
 - **Scans BCI code** for unsafe patterns (unencrypted neural streams, PII in data files, hardcoded credentials)
@@ -82,6 +90,7 @@ Produces a clean Markdown threat assessment you can share with colleagues, paste
 - **Scores severity** using NISS, a neural-specific supplement to CVSS
 - **Generates threat models** for BCI devices (consumer EEG, research systems, clinical implants)
 - **Checks neuroethics compliance** against 8 published guardrails
+- **Anonymizes neural data before processing** — scans EDF/BDF/XDF/FIF/NWB/GDF files for PII in headers, filenames, and metadata, then generates remediation scripts
 - **Enforces Security Hardrails** — combined guardrails (ethical constraints) + hardening (technical enforcement) across all plugin output
 
 ## Quick Start
@@ -98,6 +107,8 @@ That's it. Scans a sample EEG device config and shows you what an attacker could
 |---------|-------------|
 | `/bci-scan --demo` | Scan a sample device — start here |
 | `/bci-scan <file>` | Scan your BCI code or config |
+| `/bci anonymize .` | Scan neural data files for PII before processing |
+| `/bci anonymize --demo` | Demo anonymization on sample ADHD data |
 | `/bci compliance --demo` | Run a sample regulatory compliance report |
 | `/bci compliance scan .` | Scan your project for PII and regulatory compliance |
 | `/bci compliance assess` | Interactive compliance questionnaire |
@@ -250,6 +261,7 @@ bci-security/
 │   ├── neuromodesty-check/        8 guardrail compliance checks
 │   ├── bci-threat-model/          Guided threat model generation
 │   ├── bci-scan/                  Passive code scanning
+│   ├── bci-anonymize/             Pre-processing PII anonymizer
 │   ├── bci-compliance/            Regulatory compliance reports
 │   └── bci-learn/                 Interactive tutorials
 ├── agents/

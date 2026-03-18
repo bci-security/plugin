@@ -47,10 +47,11 @@ For each pattern match:
 
 ### Step 2: Technical Security Check
 
-Run the existing 3 bci-scan detection rules:
+Run the existing 4 bci-scan detection rules:
 1. Transport Security — unencrypted streams
 2. Data Storage PII — identifiable info in neural data files
 3. API Credentials — hardcoded keys
+4. PII in Neural Data Pipelines — neural biometrics, cognitive state classification, clinical diagnosis, consent gaps, cross-border transfer
 
 Map each finding to the relevant compliance domain from `regulatory-compliance.json`.
 

@@ -281,6 +281,13 @@
       "key_sections": ["Sec.3 — consent requirements for neural data collection", "Sec.4 — cognitive liberty protections", "Sec.5 — mental integrity and physical safety requirements"],
       "bci_relevance": "Proposed US federal framework. Not yet enacted but signals regulatory direction. References Chile and UNESCO frameworks.",
       "status": "Proposed legislation — not enacted. Referenced here for forward-looking compliance planning."
+    },
+    "HIPAA": {
+      "full_name": "Health Insurance Portability and Accountability Act (1996, amended by HITECH 2009)",
+      "jurisdiction": "United States — covered entities and business associates",
+      "neural_data_classification": "Protected Health Information (PHI) when neural data is associated with identifiable individuals and held by a covered entity or business associate",
+      "key_sections": ["164.502(b) — minimum necessary standard", "164.508 — authorization for use/disclosure", "164.514 — de-identification (Safe Harbor and Expert Determination)", "164.308(b) — Business Associate Agreements", "164.528 — accounting of disclosures", "164.400-414 — breach notification rule"],
+      "bci_relevance": "EEG/BCI data in clinical settings (hospitals, clinics, clinical trials) is PHI when linked to identifiable patients. Requires BAAs with cloud providers, minimum necessary data use, and breach notification within 60 days."
     }
   }
 }

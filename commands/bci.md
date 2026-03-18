@@ -27,6 +27,7 @@ Based on the arguments:
 - **"scan"**: Tell the user to run `/bci-scan` (with `--demo` for first-timers)
 - **"explain <ID>"**: Look up the technique ID in the TARA data and explain it in plain English
 - **"report"**: Generate a shareable threat assessment from the most recent scan
+- **"anonymize [<directory> | --check <file> | --template | --demo]"**: Scan neural data files for PII before processing. Checks filenames, headers, metadata, and embedded text for identifiers, then generates anonymization scripts. Run this BEFORE scanning or sharing BCI data
 - **"compliance [scan <path> | assess | --demo]"**: Run a regulatory compliance assessment. Scans for PII patterns, maps to GDPR/CCPA/Chile Neurorights/UNESCO/Mind Act requirements, and generates a compliance report with remediation roadmap
 - **"learn <topic>"**: Start an interactive walkthrough on tara, niss, or neuroethics
 - **"glossary [term]"**: Look up a BCI security term
@@ -43,6 +44,8 @@ Commands:
   /bci-scan <file>          Scan your own BCI code or config
   /bci explain <ID>         Explain a TARA technique in plain English
   /bci report               Generate a shareable threat assessment
+  /bci anonymize .          Scan neural data for PII before processing
+  /bci anonymize --demo     Demo anonymization on sample ADHD data
   /bci compliance --demo    Run a sample compliance report
   /bci compliance scan .    Scan your project for regulatory compliance
   /bci compliance assess    Interactive compliance questionnaire
