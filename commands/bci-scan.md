@@ -94,9 +94,56 @@ Load PII detection patterns from `${CLAUDE_PLUGIN_ROOT}/data/pii-patterns.json`.
 
 When PII patterns are detected, append a "Regulatory Compliance" section to the scan output. Suggest `/bci compliance scan .` for a full compliance report.
 
+### Rule 5: ML Model Security
+
+Scan for machine learning model loading and training patterns in BCI context without integrity verification:
+
+**Model loading without verification:**
+- `torch.load(` or `pickle.load(` or `joblib.load(` without adjacent hash verification (`hashlib`, `hmac`, signature check) — Flag: "ML model loaded without integrity verification. A poisoned model can produce systematically wrong BCI outputs. Verify model hash against a trusted registry before loading."
+- `from_pretrained(` or `AutoModel.from_pretrained(` in BCI context — Flag: "Pre-trained model loaded from external source. Verify model provenance and check for known backdoors (TARA: QIF-T0016, QIF-T0017)."
+- `keras.models.load_model(` without verification — same flag
+
+**Training without input validation:**
+- `model.fit(` or `clf.fit(` or `pipeline.fit(` where the training data variable references EEG/neural keywords — Flag: "ML model training on neural data. Verify training data source integrity. Poisoned training data produces compromised classifiers (TARA: QIF-T0024)."
+- `mne.decoding.CSP(` or `mne.decoding.Vectorizer(` — Flag: "MNE decoder training pipeline. Ensure training epochs come from a verified, integrity-checked source."
+
+**TARA techniques covered:** QIF-T0016 (backdoor), QIF-T0017 (transfer learning poisoning), QIF-T0024 (training data poisoning), QIF-T0018 (adversarial filter), QIF-T0019 (adversarial perturbation)
+
+### Rule 6: Stimulation Safety Bounds
+
+Scan for neurostimulation parameter configuration without safety validation:
+
+**Python patterns:**
+- `set_current(`, `set_amplitude(`, `set_intensity(` without adjacent bounds check (`assert`, `min(`, `max(`, `clamp(`, `if.*>.*max`, `if.*<.*min`) — Flag: "Stimulation current set without safety bounds. Implement maximum current density limits per IEC 60601. Missing bounds are a patient safety issue (TARA: QIF-T0001, QIF-T0029)."
+- `stimulat` + `duration` assignment without session time limit check — Flag: "Stimulation duration set without maximum session limit. Cumulative dose must be tracked across sessions (TARA: QIF-T0115, QIF-T0122)."
+- Direct user input to stimulation parameters (`float(input(` or `args.` near `current`, `amplitude`, `voltage`, `frequency`, `pulse_width`) — Flag: "CRITICAL: User input flows directly to stimulation parameters without validation. This is a patient safety vulnerability. Sanitize and clamp all stimulation parameters."
+
+**TARA techniques covered:** QIF-T0001 (signal injection), QIF-T0029 (neural DoS), QIF-T0115 (cumulative excitability shift), QIF-T0122 (chronic kindling)
+
+### Rule 7: MNE-Python & NWB Pipeline Security
+
+Scan for common research pipeline patterns:
+
+**MNE-Python:**
+- `mne.io.read_raw_fif(` or `mne.io.read_raw_edf(` — context flag: this is a neural data pipeline. Check if `raw.anonymize()` is called before any export or save. If not: "Neural data read without anonymization step. Call `raw.anonymize()` before saving or sharing (TARA: QIF-T0051)."
+- `epochs.save(` or `raw.save(` — check filename for PII per Rule 2 patterns
+- `mne.export.export_raw(` — check if preceded by `anonymize()`. Flag if not.
+- `info['subject_info']` assignments with name-like values — Flag per Rule 2
+
+**NWB (pynwb):**
+- `pynwb.NWBFile(` or `NWBHDF5IO(` — context flag: NWB neural data pipeline
+- `subject=pynwb.file.Subject(` with `subject_id=`, `date_of_birth=`, `description=` — check for PII in these fields per Rule 2 patterns
+- `.nwb` file writes without checking for PII in Subject metadata — Flag: "NWB file written. Verify Subject metadata is anonymized (subject_id, date_of_birth, description)."
+
+**BrainFlow extended:**
+- `BoardShim(BoardIds.GANGLION_BOARD` or `MUSE_S_BOARD` or `MUSE_2_BOARD` — BLE devices via BrainFlow that bypass `BleakClient` detection. Flag same as Rule 1 BLE warning.
+- `DataFilter.write_file(` — BrainFlow file export. Check filename for PII.
+
+**TARA techniques covered:** QIF-T0003 (eavesdropping via unencrypted channels), QIF-T0024 (training data poisoning via unverified read), QIF-T0038 (brainprint theft via PII in metadata), QIF-T0051 (neural data privacy breach)
+
 ## TARA Technique Mapping
 
-After running the 4 detection rules, also check the project context against the TARA technique catalog at `${CLAUDE_PLUGIN_ROOT}/data/tara-techniques.json`. For the detected device type or code patterns, identify the 3-5 most relevant TARA techniques.
+After running the 7 detection rules, also check the project context against the TARA technique catalog at `${CLAUDE_PLUGIN_ROOT}/data/tara-techniques.json`. For the detected device type or code patterns, identify the 3-5 most relevant TARA techniques.
 
 ## Output Format
 

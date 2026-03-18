@@ -111,7 +111,7 @@ Output to user
 
 ## Token Efficiency
 
-Progressive disclosure architecture per Anthropic recommendations:
+Progressive disclosure architecture per AI coding platform best practices:
 
 1. **At startup:** Only skill metadata (name, description from frontmatter) loads
 2. **When invoked:** Full SKILL.md loads (<500 lines each, largest: 219)
