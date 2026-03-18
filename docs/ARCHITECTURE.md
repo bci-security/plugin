@@ -52,7 +52,7 @@ BCI Security is a multi-skill plugin providing threat modeling, vulnerability sc
 │  │niss-device-   │ │regulatory-   │ │security-       │ │
 │  │scores (22)    │ │compliance (9)│ │controls        │ │
 │  ├───────────────┤ ├──────────────┤ ├────────────────┤ │
-│  │hardrails      │ │samples/ (3)  │ │                │ │
+│  │hardrails      │ │samples/ (5)  │ │                │ │
 │  └───────────────┘ └──────────────┘ └────────────────┘ │
 │                                                          │
 ├──────────────────────────────────────────────────────────┤
@@ -147,7 +147,7 @@ bci-security/
 │   ├── hardrails.json               Hardrails framework
 │   ├── guardrails.json              8 neuroethics guardrails
 │   ├── security-controls.json       QIF band controls
-│   └── samples/                     3 demo configs
+│   └── samples/                     5 demo files
 ├── docs/                            Reference (loaded on demand)
 │   ├── SAFETY.md                    Canonical security spec
 │   └── ARCHITECTURE.md              This file

@@ -28,7 +28,7 @@ claude plugins list
 # Start a new session, then run /bci-scan --demo
 ```
 
-**You must restart Claude Code after installing.** The plugin's skills and commands load at session start. They won't be available in the session where you ran the install.
+> **You must restart Claude Code after installing.** The plugin's skills and commands load at session start. They won't be available in the session where you ran the install. Start a new session, then run `/bci-scan --demo`.
 
 **To update:**
 ```bash
@@ -48,7 +48,6 @@ Each `skills/*/SKILL.md` file is a self-contained instruction set. Copy it into 
 ### Manual Use (Any AI)
 Copy the contents of any SKILL.md file and the relevant data JSON into your AI conversation. The instructions work with any model that can read files and follow structured prompts.
 
-Then start a new Claude Code session and run `/bci-scan --demo`.
 
 ## Usage
 
@@ -168,7 +167,7 @@ The difference between therapy and attack is consent, dosage, and oversight.
 - **Compliance Report Engine**: Regulatory risk assessment across 9 domains, mapped to GDPR, CCPA, Chile Neurorights Law, UNESCO Recommendation, and Mind Act
 - **Security Hardrails Framework**: Combined guardrails (ethical constraints) + hardening (technical enforcement) model
 - **8 Neuroethics Guardrails**: From Morse, Poldrack, Racine, Ienca, Kellmeyer, Wexler, Tennison, Vul/Eklund
-- **5 Sample Configs**: Consumer EEG, research system, clinical implant, ADHD research study (with intentional compliance violations), vulnerable BCI script (with security anti-patterns)
+- **5 Sample Files**: 3 device configs (consumer EEG, research system, clinical implant), 1 ADHD research study config (with intentional compliance violations), 1 vulnerable BCI Python script (with security anti-patterns)
 - **Legal Disclaimers**: Comprehensive LEGAL.md covering liability limitations, data handling, privacy, and regulatory framework status
 
 ## Example Use Cases
@@ -292,8 +291,8 @@ bci-security/
 │   ├── guardrails.json            8 neuroethics guardrails
 │   ├── pii-patterns.json          18 PII detection patterns
 │   ├── regulatory-compliance.json 9 compliance domains, 5 frameworks
-│   ├── hardrails.json             Security hardrails framework
-│   └── samples/                   3 demo device configs
+│   ├── hardrails.json             Security hardrails framework (design reference, not loaded at runtime)
+│   └── samples/                   5 demo files (3 device configs + study + vuln script)
 ├── docs/
 │   ├── SAFETY.md                  Canonical security specification
 │   ├── ARCHITECTURE.md            Component map & data flow
