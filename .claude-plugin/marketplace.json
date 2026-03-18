@@ -13,18 +13,7 @@
     {
       "name": "bci-security",
       "description": "BCI security toolkit with Security Hardrails (guardrails + hardening). Threat modeling, vulnerability scoring, PII detection, regulatory compliance reporting, and neuroethics compliance for brain-computer interfaces.",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/bci-scan",
-        "./skills/bci-anonymize",
-        "./skills/bci-compliance",
-        "./skills/bci-threat-model",
-        "./skills/bci-learn",
-        "./skills/neuromodesty-check",
-        "./skills/niss-score",
-        "./skills/tara-lookup"
-      ]
+      "source": "./"
     }
   ]
 }
