@@ -136,12 +136,12 @@ The difference between therapy and attack is consent, dosage, and oversight.
 
 - **TARA**: 135 threat techniques across 11 biological domains, each with evidence tiers (CONFIRMED / EMERGING / DEMONSTRATED / THEORETICAL / PLAUSIBLE / SPECULATIVE)
 - **NISS**: 6-dimensional severity scoring — Biological Impact, Coupling Risk, Coherence Disruption, Consent Violation, Reversibility, Neuroplasticity
-- **3 Code Scanning Rules**: Transport encryption, data storage PII, API credential handling
+- **4 Code Scanning Rules**: Transport encryption, data storage PII, API credential handling, PII in neural data pipelines (regulatory)
 - **18 PII Detection Patterns**: Regex-based detection for emails, phone numbers, national IDs, neural biometrics, cognitive state classifiers, clinical diagnoses, consent gaps, and retention violations
 - **Compliance Report Engine**: Regulatory risk assessment across 9 domains, mapped to GDPR, CCPA, Chile Neurorights Law, UNESCO Recommendation, and Mind Act
 - **Security Hardrails Framework**: Combined guardrails (ethical constraints) + hardening (technical enforcement) model
 - **8 Neuroethics Guardrails**: From Morse, Poldrack, Racine, Ienca, Kellmeyer, Wexler, Tennison, Vul/Eklund
-- **3 Sample Configs**: Consumer EEG, research system, clinical implant
+- **5 Sample Configs**: Consumer EEG, research system, clinical implant, ADHD research study (with intentional compliance violations), vulnerable BCI script (with security anti-patterns)
 - **Legal Disclaimers**: Comprehensive LEGAL.md covering liability limitations, data handling, privacy, and regulatory framework status
 
 ## Example Use Cases

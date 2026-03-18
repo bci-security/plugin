@@ -14,7 +14,7 @@ The user invoked: `/bci-scan $ARGUMENTS`
 
 ## Mode Detection
 
-- **`--demo`**: Use the bundled sample configs in `${CLAUDE_PLUGIN_ROOT}/data/samples/`. Scan the consumer EEG sample and produce a threat report. This is the first-run experience.
+- **`--demo`**: Use the bundled sample configs in `${CLAUDE_PLUGIN_ROOT}/data/samples/`. Scan the ADHD research study sample (`adhd-research-study.json`) AND the vulnerable BCI script (`vulnerable-bci-script.py`) to produce a threat report demonstrating all 4 detection rules. This is the first-run experience — it shows transport security, PII detection, credential handling, and regulatory compliance findings in one report.
 - **`<file>`**: Scan the specified file for BCI security patterns.
 - **`<directory>` or no args**: Scan the current project for BCI-related code by looking for imports of known BCI libraries.
 
@@ -132,11 +132,21 @@ Run `/bci report` to generate a shareable threat assessment.
 
 ## Demo Mode Output
 
-When `--demo` is used, scan the consumer EEG sample at `${CLAUDE_PLUGIN_ROOT}/data/samples/consumer-eeg.json` and produce the report. Make the output clear, educational, and non-alarming. End with:
+When `--demo` is used, scan two samples:
+1. `${CLAUDE_PLUGIN_ROOT}/data/samples/adhd-research-study.json` — a research study config with intentional PII and compliance violations
+2. `${CLAUDE_PLUGIN_ROOT}/data/samples/vulnerable-bci-script.py` — a Python script with BCI security anti-patterns
+
+Produce the report showing all 4 detection rules in action. Make the output clear, educational, and non-alarming — emphasize that these are intentional test violations. End with:
 
 ```
-This was a demo scan of a sample consumer EEG configuration.
+This was a demo scan of sample BCI data with intentional violations.
+The ADHD research study sample contains PII, missing consent, and
+regulatory compliance gaps across GDPR, CCPA, Chile Neurorights,
+UNESCO, and Mind Act. The vulnerable script demonstrates transport,
+storage, and credential anti-patterns.
+
 To scan your own project: /bci-scan .
+For a full compliance report: /bci compliance scan .
 To learn more about BCI security: /bci learn tara
 ```
 

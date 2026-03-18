@@ -1,0 +1,127 @@
+{
+  "_disclaimer": "SAMPLE DATA ONLY — contains INTENTIONAL compliance violations for testing the BCI Security compliance scanner. This file demonstrates what the scanner catches. None of the PII in this file is real.",
+  "_purpose": "Test fixture for /bci compliance --demo and /bci-scan --demo. Exercises PII detection (Rules PII-004, PII-005, PII-006, PII-010, PII-011, PII-013, PII-014, PII-015, PII-017, PII-018), all 3 transport security rules, and regulatory compliance mapping across GDPR, CCPA, Chile Neurorights, UNESCO, and Mind Act.",
+
+  "study": {
+    "name": "ADHD Resting-State EEG Study",
+    "protocol_id": "IRB-2025-0847",
+    "institution": "Sample University Neuroscience Lab",
+    "dataset_source": "Based on Mendeley ADHD resting-state EEG dataset structure (79 subjects, 37 ADHD + 42 controls)",
+    "dsm5_reference": "DSM-5-TR 314.01 (ADHD, Combined Presentation)",
+    "diagnosis": "ADHD"
+  },
+
+  "device": {
+    "device_name": "Research EEG System",
+    "device_class": "research-eeg",
+    "channels": 5,
+    "channel_names": ["O1", "F3", "F4", "Cz", "Fz"],
+    "sample_rate_hz": 256,
+    "signal_type": "EEG",
+    "connectivity": ["usb", "wifi"],
+    "transport_protocol": "LSL",
+    "transport_encryption": false,
+    "firmware": "proprietary",
+    "data_format": ["edf", "csv"]
+  },
+
+  "subjects": {
+    "_violation_PII004": "Filenames contain subject names — triggers PII-004",
+    "data_files": [
+      "John_Smith_resting_eyes_open.edf",
+      "Jane_Doe_resting_eyes_closed.edf",
+      "participant_003_resting.edf"
+    ],
+    "_violation_PII005": "Subject name in EDF header — triggers PII-005",
+    "edf_header_example": {
+      "patient_id": "Jane Doe",
+      "recording_info": "ADHD resting-state, eyes open, session 3",
+      "start_date": "2025-06-15"
+    },
+    "_violation_PII006": "Date of birth in metadata — triggers PII-006",
+    "subject_metadata": {
+      "subject_id": "sub-004",
+      "date_of_birth": "1998/03/22",
+      "age": 27,
+      "sex": "F",
+      "group": "ADHD"
+    }
+  },
+
+  "neural_processing": {
+    "_violation_PII010": "Neural biometric storage — triggers PII-010",
+    "brain_fingerprint_enabled": true,
+    "eeg_biometric_template_path": "/data/templates/neural_signatures/",
+
+    "_violation_PII011": "Cognitive state classification — triggers PII-011",
+    "attention_scoring": true,
+    "emotion_detection": true,
+    "cognitive_state_classifier": {
+      "model": "random_forest",
+      "classes": ["focused", "distracted", "drowsy", "anxious"],
+      "output": "mental_state_label"
+    },
+
+    "_violation_PII013": "Clinical diagnosis in metadata — triggers PII-013",
+    "condition": "ADHD",
+    "icd_10": "F90.2",
+    "dsm_5_code": "314.01"
+  },
+
+  "data_handling": {
+    "_violation_PII014": "No .consent.json sidecar files exist — triggers PII-014",
+    "consent_sidecar": false,
+
+    "_violation_PII015": "General purpose use with no purpose limitation — triggers PII-015",
+    "purpose": "general_purpose neural data research — any use permitted",
+
+    "_violation_PII017": "Cross-border cloud transfer — triggers PII-017",
+    "cloud_sync": {
+      "enabled": true,
+      "provider": "aws-s3",
+      "region": "us-east-1",
+      "bucket": "sample-university-eeg-data",
+      "transfer_encryption": false
+    },
+
+    "_violation_retention": "No retention policy — data kept indefinitely",
+    "retention_policy": "indefinite — retain forever for future research"
+  },
+
+  "stimulation": {
+    "_violation_PII018": "Neurostimulation without safety bounds — triggers PII-018",
+    "tdcs_enabled": true,
+    "stimulation_config": {
+      "current_mA": 2.0,
+      "duration_minutes": 20,
+      "electrode_placement": "F3-F4",
+      "ramp_seconds": 30
+    },
+    "_note": "No max current limit, no session duration limit, no cumulative dose tracking, no emergency shutoff documented"
+  },
+
+  "security_issues": {
+    "_transport": "LSL with no encryption — triggers Rule 1",
+    "_storage": "EDF files with PII in headers and filenames — triggers Rule 2",
+    "_api": "Cloud transfer over HTTP — triggers Rule 3 if api_endpoint is HTTP",
+    "api_endpoint": "http://eeg-api.sample-university.edu/upload"
+  },
+
+  "tara_relevance": {
+    "applicable_techniques": [
+      "QIF-T0001 — Signal injection (tDCS without bounds)",
+      "QIF-T0012 — Data exfiltration (unencrypted cloud transfer)",
+      "QIF-T0045 — Neural data interception (LSL no encryption)",
+      "QIF-T0089 — Cognitive profiling (attention/emotion classification)",
+      "QIF-T0102 — Biometric extraction (brain fingerprint storage)"
+    ],
+    "device_niss_profile": "research-eeg with stimulation capability"
+  },
+
+  "expected_compliance_findings": {
+    "critical": 6,
+    "high": 4,
+    "medium": 1,
+    "frameworks_triggered": ["GDPR Art.9", "GDPR Art.22", "GDPR Art.44-49", "CCPA 1798.140(ae)", "Chile Neurorights Art.2-5", "UNESCO Art.14-19", "Mind Act Sec.3-5", "HIPAA 164.514"]
+  }
+}
