@@ -23,6 +23,17 @@ claude plugins install bci-security
 # Verify
 claude plugins list
 # Should show: bci-security@bci-security ✔ enabled
+
+# IMPORTANT: Restart Claude Code to load the plugin
+# Start a new session, then run /bci-scan --demo
+```
+
+**You must restart Claude Code after installing.** The plugin's skills and commands load at session start. They won't be available in the session where you ran the install.
+
+**To update:**
+```bash
+claude plugins update bci-security
+# Then restart Claude Code
 ```
 
 ### Other AI Coding Platforms
