@@ -214,7 +214,7 @@
       },
       "mechanism": "Radiofrequency emission at neural oscillation frequencies to induce false brain activity patterns",
       "sources": [
-        "Zhang et al. 2024"
+        "Armengol-Urpi et al. 2023 (Brain-Hack, ACM CPSIoTSec)"
       ],
       "dual_use": "confirmed",
       "therapeutic_analog": "Repetitive transcranial magnetic stimulation (rTMS)",
@@ -229,8 +229,8 @@
       "name": "ELF neural entrainment",
       "tactic": "QIF-E.RD",
       "bands": "S1\u2192N4\u2013N7",
-      "status": "CONFIRMED",
-      "severity": "critical",
+      "status": "THEORETICAL",
+      "severity": "medium",
       "niss": {
         "vector": "NISS:1.1/BI:H/CR:H/CD:H/CV:E/RV:P/NP:S",
         "score": 7.4,
@@ -238,10 +238,10 @@
       },
       "mechanism": "Extremely low frequency electromagnetic fields entraining endogenous neural oscillations via resonance",
       "sources": [
-        "NTIA Frequency Allocation Chart",
-        "US Navy ELF program (declassified)"
+        "NTIA Frequency Allocation Chart (frequency reference only)",
+        "General ELF/neural oscillation literature (no BCI-specific attack demonstration)"
       ],
-      "dual_use": "confirmed",
+      "dual_use": "probable",
       "therapeutic_analog": "Audio-visual entrainment (AVE) / photic driving therapy",
       "mitigations": [
         "impedance",
