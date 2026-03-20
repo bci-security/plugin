@@ -36,7 +36,7 @@ import { bciThreatModel } from "./tools/bci-threat-model.js";
 import { bciAnonymize } from "./tools/bci-anonymize.js";
 import { neuromodestyCheck } from "./tools/neuromodesty-check.js";
 import { bciLearn } from "./tools/bci-learn.js";
-import { securityToolStatus } from "./tools/security-orchestrator.js";
+import { securityToolStatus, runDastScan } from "./tools/security-orchestrator.js";
 
 // Input validators
 import {
@@ -236,10 +236,25 @@ const TOOLS = [
     },
   },
   {
+    name: "dast_scan",
+    description:
+      "Run a dynamic application security test (DAST) against a target URL. " +
+      "Uses Nuclei (9000+ templates, -ni flag to prevent OAST phone-home) and " +
+      "Nikto (web server scanner, -nocheck). Makes live HTTP requests to the target. " +
+      "Blocks scanning of internal/private IPs.",
+    inputSchema: {
+      type: "object" as const,
+      properties: {
+        target_url: { type: "string", description: "Full URL to scan (e.g., https://api.example.com)" },
+      },
+      required: ["target_url"],
+    },
+  },
+  {
     name: "security_tool_status",
     description:
       "Show which external security tools are installed and available. " +
-      "Lists: Semgrep, Gitleaks, Grype, TruffleHog, detect-secrets, OSV-Scanner. " +
+      "Lists all SAST, SCA, secrets, DAST, and IaC tools. " +
       "Provides install commands for missing tools.",
     inputSchema: {
       type: "object" as const,
@@ -261,6 +276,10 @@ const TOOL_HANDLERS: Record<string, ToolHandler> = {
   bci_anonymize: (args) => bciAnonymize(BciAnonymizeSchema.parse(args)),
   neuromodesty_check: (args) => neuromodestyCheck(NeuromodestyCheckSchema.parse(args)),
   bci_learn: (args) => bciLearn(BciLearnSchema.parse(args)),
+  dast_scan: (args) => {
+    const parsed = z.object({ target_url: z.string().url() }).parse(args);
+    return runDastScan(parsed.target_url);
+  },
   security_tool_status: () => securityToolStatus(),
 };
 

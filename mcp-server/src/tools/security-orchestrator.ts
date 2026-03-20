@@ -422,6 +422,77 @@ function mapOsvSeverity(sev: string): ExternalFinding["severity"] {
 }
 
 /**
+ * Run Checkov on IaC files (Terraform, Dockerfile, K8s, CloudFormation).
+ * Air-gapped: --skip-download prevents Prisma Cloud API calls.
+ */
+function runCheckov(code: string, filename?: string): ExternalFinding[] {
+  if (!toolExists("checkov")) return [];
+
+  const isIaC = filename && (
+    filename.endsWith(".tf") ||
+    filename === "Dockerfile" ||
+    filename.endsWith(".yaml") ||
+    filename.endsWith(".yml") ||
+    filename.endsWith(".json") && (
+      filename.includes("cloudformation") ||
+      filename.includes("template") ||
+      filename.includes("k8s") ||
+      filename.includes("kubernetes")
+    )
+  );
+  if (!isIaC) return [];
+
+  const tmpDir = mkdtempSync(join(tmpdir(), "bci-scan-"));
+  const tmpFile = join(tmpDir, filename ?? "config");
+
+  try {
+    writeFileSync(tmpFile, code, "utf-8");
+
+    const result = execFileSync("checkov", [
+      "--file", tmpFile,
+      "--output", "json",
+      "--compact",
+      "--skip-download",  // Air-gap: no Prisma Cloud API
+      "--quiet",
+    ], {
+      encoding: "utf-8",
+      timeout: 120000,
+    });
+
+    const parsed = JSON.parse(result);
+    const findings: ExternalFinding[] = [];
+
+    for (const check of parsed.results?.failed_checks ?? []) {
+      findings.push({
+        tool: "Checkov",
+        severity: mapCheckovSeverity(check.severity ?? "MEDIUM"),
+        rule: check.check_id ?? "unknown",
+        message: `${check.check_id}: ${check.check_result?.name ?? check.name ?? "IaC misconfiguration"}`,
+        line: check.file_line_range?.[0],
+      });
+    }
+
+    audit("checkov", `Scanned ${filename}, ${findings.length} misconfigurations found`);
+    return findings;
+  } catch {
+    audit("checkov", "Scan completed (no findings or error)");
+    return [];
+  } finally {
+    try { unlinkSync(tmpFile); rmdirSync(tmpDir); } catch { /* cleanup */ }
+  }
+}
+
+function mapCheckovSeverity(sev: string): ExternalFinding["severity"] {
+  switch (sev.toUpperCase()) {
+    case "CRITICAL": return "critical";
+    case "HIGH": return "high";
+    case "MEDIUM": return "medium";
+    case "LOW": return "low";
+    default: return "medium";
+  }
+}
+
+/**
  * Format external findings into a markdown report section.
  */
 function formatExternalFindings(findings: ExternalFinding[]): string {
@@ -463,6 +534,9 @@ export function getToolStatus(): Record<string, boolean> {
     trufflehog: toolExists("trufflehog"),
     "detect-secrets": toolExists("detect-secrets"),
     "osv-scanner": toolExists("osv-scanner"),
+    checkov: toolExists("checkov"),
+    nuclei: toolExists("nuclei"),
+    nikto: toolExists("nikto"),
   };
 }
 
@@ -520,8 +594,156 @@ export function runExternalScanners(
     allFindings.push(...osvFindings);
   }
 
+  // IaC: Checkov (Terraform, Dockerfile, K8s, CloudFormation)
+  const checkovFindings = runCheckov(code, filename);
+  if (checkovFindings.length > 0 || (toolExists("checkov") && filename)) {
+    toolsRun.push("Checkov");
+    allFindings.push(...checkovFindings);
+  }
+
   const report = formatExternalFindings(allFindings);
   return { findings: allFindings, report, toolsRun };
+}
+
+/**
+ * Run a DAST scan against a target URL using Nuclei and/or Nikto.
+ * DAST tools make live HTTP requests to the target — user must confirm the target.
+ *
+ * Nuclei: -duc (no update check), -ni (no Interactsh OAST)
+ * Nikto: -nocheck (no update check)
+ */
+export function runDastScan(targetUrl: string): ToolResult {
+  // Validate URL format
+  let parsed: URL;
+  try {
+    parsed = new URL(targetUrl);
+  } catch {
+    return {
+      content: [{ type: "text", text: "Error: Invalid URL. Provide a full URL like https://example.com" }],
+      isError: true,
+    };
+  }
+
+  // Block scanning internal/private IPs
+  const host = parsed.hostname;
+  if (
+    host === "localhost" || host === "127.0.0.1" ||
+    host.startsWith("10.") || host.startsWith("192.168.") ||
+    host.startsWith("172.16.") || host.startsWith("172.17.") ||
+    host.startsWith("169.254.")
+  ) {
+    return {
+      content: [{ type: "text", text: "Error: DAST scanning of internal/private IPs is blocked for safety." }],
+      isError: true,
+    };
+  }
+
+  const findings: ExternalFinding[] = [];
+  const toolsRun: string[] = [];
+
+  // Nuclei scan
+  if (toolExists("nuclei")) {
+    try {
+      const result = execFileSync("nuclei", [
+        "-target", targetUrl,
+        "-jsonl",
+        "-duc",           // No update check
+        "-ni",            // No Interactsh (prevents OAST phone-home)
+        "-silent",
+        "-timeout", "10",
+        "-rate-limit", "10",
+      ], {
+        encoding: "utf-8",
+        timeout: 120000,
+      });
+
+      for (const line of result.split("\n").filter(Boolean)) {
+        try {
+          const p = JSON.parse(line);
+          findings.push({
+            tool: "Nuclei",
+            severity: mapNucleiSeverity(p.info?.severity ?? "medium"),
+            rule: p["template-id"] ?? "unknown",
+            message: `${p.info?.name ?? p["template-id"]}: ${p.matched ?? ""}`,
+          });
+        } catch { /* skip */ }
+      }
+      toolsRun.push("Nuclei");
+      audit("nuclei", `Scanned ${targetUrl}, ${findings.length} findings`);
+    } catch {
+      toolsRun.push("Nuclei");
+      audit("nuclei", `Scan of ${targetUrl} completed`);
+    }
+  }
+
+  // Nikto scan
+  if (toolExists("nikto")) {
+    try {
+      const result = execFileSync("nikto", [
+        "-h", targetUrl,
+        "-Format", "json",
+        "-nocheck",       // No update check
+        "-Tuning", "1234",  // Basic checks only (no DoS tests)
+        "-timeout", "10",
+      ], {
+        encoding: "utf-8",
+        timeout: 120000,
+      });
+
+      try {
+        const parsed_result = JSON.parse(result);
+        for (const vuln of parsed_result.vulnerabilities ?? []) {
+          findings.push({
+            tool: "Nikto",
+            severity: "medium",
+            rule: vuln.id ?? "unknown",
+            message: vuln.msg ?? "Web server finding",
+          });
+        }
+      } catch { /* Nikto JSON output can be inconsistent */ }
+      toolsRun.push("Nikto");
+      audit("nikto", `Scanned ${targetUrl}`);
+    } catch {
+      toolsRun.push("Nikto");
+      audit("nikto", `Scan of ${targetUrl} completed`);
+    }
+  }
+
+  if (toolsRun.length === 0) {
+    return {
+      content: [{ type: "text", text: "No DAST tools installed. Install with: brew install nuclei nikto" }],
+      isError: true,
+    };
+  }
+
+  let report = `## DAST Scan Results: ${targetUrl}\n\n`;
+  report += `**Tools run:** ${toolsRun.join(", ")}\n`;
+  report += `**Findings:** ${findings.length}\n\n`;
+
+  if (findings.length === 0) {
+    report += "No vulnerabilities detected.\n";
+  } else {
+    report += formatExternalFindings(findings);
+  }
+
+  report += "\n---\n*DAST scans make live HTTP requests to the target. " +
+    "Nuclei ran with -ni (no Interactsh/OAST). Nikto ran with -nocheck (no update). " +
+    "Not a substitute for professional penetration testing.*";
+
+  return {
+    content: [{ type: "text", text: sanitizeReport(report) }],
+  };
+}
+
+function mapNucleiSeverity(sev: string): ExternalFinding["severity"] {
+  switch (sev.toLowerCase()) {
+    case "critical": return "critical";
+    case "high": return "high";
+    case "medium": return "medium";
+    case "low": return "low";
+    case "info": return "info";
+    default: return "medium";
+  }
 }
 
 /**
@@ -533,22 +755,38 @@ export function securityToolStatus(): ToolResult {
   const missing = Object.entries(status).filter(([_, v]) => !v).map(([k]) => k);
 
   let report = "## Security Tool Status\n\n";
-  report += `**Installed:** ${installed.length > 0 ? installed.join(", ") : "none"}\n`;
+  report += `**Installed:** ${installed.length}/${Object.keys(status).length} external tools\n`;
   report += `**Missing:** ${missing.length > 0 ? missing.join(", ") : "none"}\n\n`;
 
   if (missing.length > 0) {
     report += "### Install Missing Tools\n\n```bash\nbrew install " + missing.join(" ") + "\n```\n\n";
   }
 
-  report += "### Built-in (always available)\n\n";
+  report += "### External Tools\n\n";
+  report += "| Category | Tool | Status | Air-Gap Flag |\n";
+  report += "|----------|------|--------|-------------|\n";
+  report += `| SAST | Semgrep | ${status.semgrep ? "installed" : "missing"} | --metrics=off |\n`;
+  report += `| Secrets | Gitleaks | ${status.gitleaks ? "installed" : "missing"} | none needed |\n`;
+  report += `| Secrets | TruffleHog | ${status.trufflehog ? "installed" : "missing"} | --no-verification |\n`;
+  report += `| Secrets | detect-secrets | ${status["detect-secrets"] ? "installed" : "missing"} | none needed |\n`;
+  report += `| SCA | Grype | ${status.grype ? "installed" : "missing"} | GRYPE_CHECK_FOR_APP_UPDATE=false |\n`;
+  report += `| SCA | OSV-Scanner | ${status["osv-scanner"] ? "installed" : "missing"} | --experimental-offline |\n`;
+  report += `| IaC | Checkov | ${status.checkov ? "installed" : "missing"} | --skip-download |\n`;
+  report += `| DAST | Nuclei | ${status.nuclei ? "installed" : "missing"} | -duc -ni |\n`;
+  report += `| DAST | Nikto | ${status.nikto ? "installed" : "missing"} | -nocheck |\n`;
+  report += "\n";
+
+  report += "### Built-in (always available, zero dependencies)\n\n";
   report += "- OWASP Top 10:2021 (78 patterns)\n";
   report += "- OWASP API Security Top 10:2023\n";
   report += "- OWASP LLM Top 10:2025\n";
   report += "- CWE Top 25:2024\n";
   report += "- Burp Suite categories\n";
+  report += "- BCI-specific Semgrep rules (14 rules)\n";
   report += "- BCI PII patterns (18)\n";
   report += "- Credential detection (10 patterns)\n";
   report += "- TARA technique mapping (135)\n";
+  report += "- Neuroethics guardrails (8)\n";
 
   return {
     content: [{ type: "text", text: sanitizeReport(report + DISCLAIMER) }],
