@@ -36,6 +36,7 @@ import { bciThreatModel } from "./tools/bci-threat-model.js";
 import { bciAnonymize } from "./tools/bci-anonymize.js";
 import { neuromodestyCheck } from "./tools/neuromodesty-check.js";
 import { bciLearn } from "./tools/bci-learn.js";
+import { securityToolStatus } from "./tools/security-orchestrator.js";
 
 // Input validators
 import {
@@ -234,6 +235,18 @@ const TOOLS = [
       required: ["topic"],
     },
   },
+  {
+    name: "security_tool_status",
+    description:
+      "Show which external security tools are installed and available. " +
+      "Lists: Semgrep, Gitleaks, Grype, TruffleHog, detect-secrets, OSV-Scanner. " +
+      "Provides install commands for missing tools.",
+    inputSchema: {
+      type: "object" as const,
+      properties: {},
+      required: [],
+    },
+  },
 ] as const;
 
 // Tool handler dispatch
@@ -248,6 +261,7 @@ const TOOL_HANDLERS: Record<string, ToolHandler> = {
   bci_anonymize: (args) => bciAnonymize(BciAnonymizeSchema.parse(args)),
   neuromodesty_check: (args) => neuromodestyCheck(NeuromodestyCheckSchema.parse(args)),
   bci_learn: (args) => bciLearn(BciLearnSchema.parse(args)),
+  security_tool_status: () => securityToolStatus(),
 };
 
 async function main(): Promise<void> {
