@@ -1,8 +1,10 @@
 # BCI Security
 
+> **UNDER CONSTRUCTION** — Tools have working components but are in active development. Use at your own discretion. Not production-validated.
+
 > **Moved to [bci-security/plugin](https://github.com/bci-security/plugin).** This repo ([qinnovates/bci-security](https://github.com/qinnovates/bci-security)) is the original archive with full version history.
 
-BCI security toolkit for researchers, developers, and engineers. Threat modeling, vulnerability scoring, pattern detection, and neuroethics compliance for brain-computer interfaces.
+BCI security toolkit for researchers, developers, and engineers. Threat modeling, vulnerability scanning, pattern detection, and neuroethics compliance for brain-computer interfaces.
 
 To our knowledge, no other tool provides structured neurosecurity analysis — threat taxonomies, neural impact scoring, or neuroethics compliance checking — inside an AI coding platform. As of March 2026, we are unaware of any equivalent in any AI coding platform marketplace.
 
