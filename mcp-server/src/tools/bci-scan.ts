@@ -8,7 +8,6 @@ import { assertNoInjection } from "../security/injection.js";
 import { redactCredentials, containsCredentials } from "../security/credential-redactor.js";
 import { sanitizeReport } from "../security/sanitizer.js";
 import { safeRegexTest } from "../security/safe-regex.js";
-import { runExternalScanners } from "./security-orchestrator.js";
 import type { BciScanInput } from "../security/validator.js";
 import type { ToolResult } from "../types/index.js";
 
@@ -162,19 +161,13 @@ export function bciScan(input: BciScanInput): ToolResult {
     }
   }
 
-  // 5. External tool scanners (Semgrep, Gitleaks, Grype — if installed)
-  const external = runExternalScanners(input.code, input.language, input.filename);
-
-  // 6. TARA technique mapping for findings
+  // 5. TARA technique mapping for findings
   const tara = getTara();
   const taraRefs = new Set(findings.map((f) => f.tara_ref).filter(Boolean));
   const relatedTechniques = tara.techniques.filter((t) => taraRefs.has(t.id));
 
-  // Total finding count includes external
-  const totalFindings = findings.length + external.findings.length;
-
   // Format output
-  if (totalFindings === 0) {
+  if (findings.length === 0) {
     return {
       content: [
         {
@@ -192,21 +185,15 @@ export function bciScan(input: BciScanInput): ToolResult {
     };
   }
 
-  const allSeverities = [
-    ...findings.map((f) => f.severity),
-    ...external.findings.map((f) => f.severity),
-  ];
-  const criticals = allSeverities.filter((s) => s === "critical").length;
-  const highs = allSeverities.filter((s) => s === "high").length;
-  const mediums = allSeverities.filter((s) => s === "medium").length;
+  const criticals = findings.filter((f) => f.severity === "critical").length;
+  const highs = findings.filter((f) => f.severity === "high").length;
+  const mediums = findings.filter((f) => f.severity === "medium").length;
 
   let report =
     `## Security Scan Results\n\n` +
     `**Scanned:** ${code.split("\n").length} lines` +
     `${input.filename ? ` (${input.filename})` : ""}\n` +
-    `**Built-in findings:** ${findings.length} | **External tool findings:** ${external.findings.length}\n` +
-    `**Total:** ${totalFindings} (${criticals} critical, ${highs} high, ${mediums} medium)\n` +
-    `**Tools run:** Built-in OWASP/CWE/Burp/BCI${external.toolsRun.length > 0 ? ` + ${external.toolsRun.join(", ")}` : ""}\n\n`;
+    `**Findings:** ${findings.length} (${criticals} critical, ${highs} high, ${mediums} medium)\n\n`;
 
   // Group by severity
   for (const severity of ["critical", "high", "medium", "low", "info"] as const) {
@@ -221,11 +208,6 @@ export function bciScan(input: BciScanInput): ToolResult {
       report += `\n  - Remediation: ${f.remediation}\n`;
     }
     report += "\n";
-  }
-
-  // External tool findings
-  if (external.report) {
-    report += external.report;
   }
 
   if (relatedTechniques.length > 0) {

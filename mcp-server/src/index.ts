@@ -36,7 +36,6 @@ import { bciThreatModel } from "./tools/bci-threat-model.js";
 import { bciAnonymize } from "./tools/bci-anonymize.js";
 import { neuromodestyCheck } from "./tools/neuromodesty-check.js";
 import { bciLearn } from "./tools/bci-learn.js";
-import { securityToolStatus, runDastScan, runSupplyChainScan } from "./tools/security-orchestrator.js";
 
 // Input validators
 import {
@@ -235,50 +234,6 @@ const TOOLS = [
       required: ["topic"],
     },
   },
-  {
-    name: "dast_scan",
-    description:
-      "Run a dynamic application security test (DAST) against a target URL. " +
-      "Uses Nuclei (9000+ templates, -ni flag to prevent OAST phone-home) and " +
-      "Nikto (web server scanner, -nocheck). Makes live HTTP requests to the target. " +
-      "Blocks scanning of internal/private IPs.",
-    inputSchema: {
-      type: "object" as const,
-      properties: {
-        target_url: { type: "string", description: "Full URL to scan (e.g., https://api.example.com)" },
-      },
-      required: ["target_url"],
-    },
-  },
-  {
-    name: "supply_chain_scan",
-    description:
-      "Scan MCP server configs and dependencies for supply chain risks. " +
-      "MCPShield (typosquatting, CVEs, credentials), SkillFortify (ASBOM, trust scores), " +
-      "OpenSSF Scorecard (maintainer reputation). All run locally.",
-    inputSchema: {
-      type: "object" as const,
-      properties: {
-        config_path: {
-          type: "string",
-          description: "Path to MCP config file, project directory, or GitHub repo URL (for Scorecard)",
-        },
-      },
-      required: [],
-    },
-  },
-  {
-    name: "security_tool_status",
-    description:
-      "Show which external security tools are installed and available. " +
-      "Lists all SAST, SCA, secrets, DAST, and IaC tools. " +
-      "Provides install commands for missing tools.",
-    inputSchema: {
-      type: "object" as const,
-      properties: {},
-      required: [],
-    },
-  },
 ] as const;
 
 // Tool handler dispatch
@@ -293,15 +248,6 @@ const TOOL_HANDLERS: Record<string, ToolHandler> = {
   bci_anonymize: (args) => bciAnonymize(BciAnonymizeSchema.parse(args)),
   neuromodesty_check: (args) => neuromodestyCheck(NeuromodestyCheckSchema.parse(args)),
   bci_learn: (args) => bciLearn(BciLearnSchema.parse(args)),
-  dast_scan: (args) => {
-    const parsed = z.object({ target_url: z.string().url() }).parse(args);
-    return runDastScan(parsed.target_url);
-  },
-  supply_chain_scan: (args) => {
-    const parsed = z.object({ config_path: z.string().max(500).optional() }).parse(args);
-    return runSupplyChainScan(parsed.config_path);
-  },
-  security_tool_status: () => securityToolStatus(),
 };
 
 async function main(): Promise<void> {
